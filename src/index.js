@@ -2,7 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { clickButton } from './actions/index'
+import { connect } from 'react-redux';
+import { clickButton, logIn } from './actions/index'
 import App from './components/App'
 import reducer from './reducers'
 
@@ -13,7 +14,7 @@ const unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 )
 
-store.dispatch(clickButton())
+store.dispatch(logIn())
 
 render(
   <Provider store={store}>

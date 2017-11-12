@@ -4,7 +4,11 @@ import Button from './Button'
 class Board extends Component {
 	render() {
 		return (
-			<div>'Board'<Button/></div>
+			<div>'Board'
+				<Button/>
+				<Button/>
+				<Button/>
+			</div>
 		)
 	}
 }

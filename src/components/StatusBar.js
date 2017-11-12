@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 class StatusBar extends Component {
 	render() {
 		return (
-			<div>'Status Bar'</div>
+			<div>{this.props.account}</div>
 		)
 	}
 }
 
-export default StatusBar
+const mapStateToProps = state => {
+  return {
+    account: state.account
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(StatusBar)
