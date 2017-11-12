@@ -1,23 +1,8 @@
-/*export const addTodo = (text) => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
-})
+//action types
+export const CLICK_BUTTON = 'CLICK_BUTTON'
 
-export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
+//action creators
 
-export const toggleTodo = (id) => ({
-  type: 'TOGGLE_TODO',
-  id
-})*/
-
-export const actionOne = (text) => ({
-  type: 'ACTION_ONE',
-})
-
-export const actionTwo = (text) => ({
-  type: 'ACTION_TWO',
-})
+export const clickButton = (text) => {
+	return {type: CLICK_BUTTON, text}
+}
