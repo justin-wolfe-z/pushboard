@@ -7,8 +7,12 @@ class Board extends Component {
 		return (
 			<div>
 					{
-						this.props.buttons.map((button,i) => {
-							return <Button key={i} icon={button.icon}></Button>
+						this.props.buttons.map((button) => {
+							return <Button 
+								key={button.id} 
+								icon={button.icon}
+								id={button.id}
+							/>
 						})
 					}
 			</div>

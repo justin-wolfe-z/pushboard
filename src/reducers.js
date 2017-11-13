@@ -1,26 +1,4 @@
-const initialState = {
-	account:"justin.wolfe@gmail.com",
-	buttons: [
-		{
-			icon:"baby",
-			text:"",
-			hookURL:"hookURL"
-		},
-		{
-			icon:"hat",
-			text:"",
-			hookURL:"hookURLLL",
-		},
-		{
-			icon:"puppy",
-			text:"",
-			hookURL:"hookURLLL",
-		}
-	],
-	isFetching: false,
-	isLoggedIn: false,
-	view: "board"
-}
+import initialState from './data/initial_store'
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {

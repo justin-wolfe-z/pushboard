@@ -15,6 +15,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(
-  mapStateToProps
-)(StatusBar)
+export default connect(mapStateToProps)(StatusBar)
