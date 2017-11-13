@@ -1,12 +1,20 @@
 const initialState = {
 	account:"justin.wolfe@gmail.com",
 	buttons: [
-		"button1": {
-			"icon":"baby",
-			"hookURL":"hookURL"
+		{
+			icon:"baby",
+			text:"",
+			hookURL:"hookURL"
 		},
-		"button2": {
-			"icon":"dog",
+		{
+			icon:"hat",
+			text:"",
+			hookURL:"hookURLLL",
+		},
+		{
+			icon:"puppy",
+			text:"",
+			hookURL:"hookURLLL",
 		}
 	],
 	isFetching: false,
