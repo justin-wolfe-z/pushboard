@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
+import {clickButton} from '../actions/index'
 
 class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-	handleClick(){
-		console.log(this);
-		console.log("clicked a button");
-	}
-
 	render() {
 		return (
 			<div 
@@ -26,12 +17,8 @@ class Button extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    clickButton : (id) => dispatch({
-      type : 'CLICK_BUTTON',
-      target: id
-    })
+    clickButton: (id) => dispatch(clickButton(id))
   }
 }
-
 
 export default connect(null,mapDispatchToProps)(Button)

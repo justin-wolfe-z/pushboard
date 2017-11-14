@@ -1,7 +1,6 @@
-//action types
 export const CLICK_BUTTON = 'CLICK_BUTTON'
-export const clickButton = (text) => {
-	return {type: CLICK_BUTTON, text}
+export const clickButton = (target) => {
+	return {type: CLICK_BUTTON, target}
 }
 
 export const LOG_IN = 'LOG_IN'
