@@ -13,10 +13,12 @@ export const loadThunk = (text) => {
 	return (dispatch) => {
 		dispatch(loading());
 		fetch("https://dog.ceo/api/breeds/list/all")
-		    .then(response => response.json().then((data) => {
-		    	console.log(data.message);
-    			dispatch(loaded());
-		    }))
+		    .then(response => response.json()
+	    	.then(data => {
+	    		console.log(data.message);
+  				dispatch(loaded(data.message.hound));
+	    	})
+	    	)
 	}
 }
 
