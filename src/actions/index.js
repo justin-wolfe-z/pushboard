@@ -38,3 +38,8 @@ export const TO_EDITOR = 'TO_EDITOR'
 export const toEditor = (buttonID) => {
 	return {type: TO_EDITOR, buttonID}
 }
+
+export const TO_PUSHBOARD = 'TO_PUSHBOARD'
+export const toPushboard = () => {
+	return {type: TO_PUSHBOARD}
+}

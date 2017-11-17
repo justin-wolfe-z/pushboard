@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {toPushboard} from '../actions/index'
 
 class Editor extends Component {
 	render() {
@@ -12,7 +13,12 @@ class Editor extends Component {
 						<div>type: {this.props.button.type}</div>
 						<div>text: {this.props.button.text}</div>
 					</div>
-					<div className='save'>Save and Exit</div>
+					<div 
+						className='save' 
+						onClick={() => this.props.click()}
+					>
+						Save and Exit
+					</div>
 			</div>
 		)
 	}
@@ -24,4 +30,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Editor)
+const mapDispatchToProps = dispatch => {
+  return {
+    click: () => dispatch(toPushboard())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Editor)

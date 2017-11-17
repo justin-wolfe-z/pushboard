@@ -13,6 +13,11 @@ const reducer = (state = initialState, action) => {
     		screen: "Editor",
     		selectedButton: state.buttons[action.buttonID]
     	})  
+  	case "TO_PUSHBOARD":
+    	return Object.assign({}, state, {
+    		screen: "Pushboard",
+    		selectedButton: null
+    	})    	
 		default:
 			return state
 	}
