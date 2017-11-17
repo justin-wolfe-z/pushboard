@@ -28,7 +28,7 @@ const initialState = {
 	],
 	isFetching: false,
 	isLoggedIn: false,
-	screen: "Splash"
+	screen: "Pushboard"
 }
 
 export default initialState
