@@ -1,7 +1,6 @@
 import initialState from './data/initial_store'
 
 const reducer = (state = initialState, action) => {
-	console.log(action);
 	switch(action.type) {
 		case "CLICK_BUTTON":
 			return state

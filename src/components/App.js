@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import StatusBar from './StatusBar'
-import Board from './Board'
+import {connect} from 'react-redux'
+import Pushboard from '../screens/Pushboard'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className='App'>
-        <StatusBar />
-        <Board />
-      </div>
+    	<Pushboard/>
     )
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    screen: state.screen
+  }
+}
+
+export default connect(mapStateToProps)(App)

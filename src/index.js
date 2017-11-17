@@ -9,7 +9,6 @@ import App from './components/App'
 import reducer from './reducers'
 
 const store = createStore(reducer,applyMiddleware(thunk,logger))
-console.log(store.getState())
 
 /*const unsubscribe = store.subscribe(() =>
   console.log(store.getState())

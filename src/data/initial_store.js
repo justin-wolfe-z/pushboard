@@ -18,11 +18,17 @@ const initialState = {
 			icon:"puppy",
 			text:"",
 			hookURL:"hookURLLL",
+		},
+		{
+			id:4,
+			icon:"cookie",
+			text:"",
+			hookURL:"hookURLLL",
 		}
 	],
 	isFetching: false,
 	isLoggedIn: false,
-	view: "board"
+	screen: "board"
 }
 
 export default initialState
