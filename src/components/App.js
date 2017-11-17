@@ -9,13 +9,13 @@ import Splash from '../screens/Splash'
 class App extends Component {
   render() {
   	switch(this.props.screen){
-  		case "Login":
+  		case 'Login':
   			return (<Login/>)
-	  	case "Pushboard":
+	  	case 'Pushboard':
 	  		return (<Pushboard/>)
-  		case "Editor":
+  		case 'Editor':
   			return (<Editor/>)
-  		case "Splash":
+  		case 'Splash':
   			return (<Splash/>)
 			default:
 				return (<div>No valid value for "screen" prop</div>)

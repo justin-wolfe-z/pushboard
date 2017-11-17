@@ -6,13 +6,22 @@ class Editor extends Component {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
-					<div>icon</div>
-					<div>name</div>
-					<div>type</div>
-					<div>text</div>
+					<div className='params'>
+						<div>icon: {this.props.button.icon}</div>
+						<div>name: {this.props.button.name}</div>
+						<div>type: {this.props.button.type}</div>
+						<div>text: {this.props.button.text}</div>
+					</div>
+					<div className='save'>Save and Exit</div>
 			</div>
 		)
 	}
 }
 
-export default Editor
+const mapStateToProps = state => {
+  return {
+    button: state.selectedButton
+  }
+}
+
+export default connect(mapStateToProps)(Editor)

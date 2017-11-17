@@ -2,7 +2,7 @@ const initialState = {
 	account:"justin.wolfe@gmail.com",
 	buttons: [
 		{
-			id:1,
+			id:0,
 			icon:"baby",
 			type:"static",
 			connected:"false",
@@ -10,7 +10,7 @@ const initialState = {
 			hookURL:"hookURL"
 		},
 		{
-			id:2,
+			id:1,
 			icon:"hat",
 			type:"static",
 			connected:"false",
@@ -18,7 +18,7 @@ const initialState = {
 			hookURL:"hookURLLL",
 		},
 		{
-			id:3,
+			id:2,
 			icon:"puppy",
 			type:"static",
 			connected:"false",
@@ -26,7 +26,7 @@ const initialState = {
 			hookURL:"hookURLLL",
 		},
 		{
-			id:4,
+			id:3,
 			icon:"cookie",
 			type:"static",
 			connected:"false",
@@ -36,8 +36,9 @@ const initialState = {
 	],
 	isFetching: false,
 	isSelecting: false,
+	selectedButton: null,
 	isLoggedIn: false,
-	screen: "Login"
+	screen: "Pushboard"
 }
 
 export default initialState

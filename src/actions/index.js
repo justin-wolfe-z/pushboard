@@ -8,6 +8,7 @@ export const logIn = (text) => {
 	return {type: LOG_IN, text}
 }
 
+//thunk for loading user data (with fake API right now)
 export const LOAD_THUNK = 'LOAD_THUNK'
 export const loadThunk = (text) => {
 	return (dispatch) => {
@@ -30,4 +31,10 @@ export const loading = (text) => {
 export const LOADED = 'LOADED'
 export const loaded = (text) => {
 	return {type: LOADED, text}
+}
+
+//action for moving to the editor for a particular button from the pushboard
+export const TO_EDITOR = 'TO_EDITOR'
+export const toEditor = (buttonID) => {
+	return {type: TO_EDITOR, buttonID}
 }

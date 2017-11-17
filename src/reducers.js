@@ -8,6 +8,11 @@ const reducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
         loggedIn: true
       })
+    case "TO_EDITOR":
+    	return Object.assign({}, state, {
+    		screen: "Editor",
+    		selectedButton: state.buttons[action.buttonID]
+    	})  
 		default:
 			return state
 	}

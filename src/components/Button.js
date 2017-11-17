@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {clickButton} from '../actions/index'
+import {clickButton, toEditor} from '../actions/index'
 
 class Button extends Component {
 	render() {
 		return (
 			<div 
 				className='Button' 
-				onClick={() => this.props.clickButton(this.props.id)}
+				onClick={() => this.props.click(this.props.id)}
 			>
 				{this.props.icon}
 			</div>
@@ -17,7 +17,7 @@ class Button extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    clickButton: (id) => dispatch(clickButton(id))
+    click: (buttonID) => dispatch(toEditor(buttonID))
   }
 }
 
