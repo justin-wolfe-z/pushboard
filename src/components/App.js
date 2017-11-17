@@ -10,13 +10,13 @@ class App extends Component {
   render() {
   	switch(this.props.screen){
   		case 'Login':
-  			return (<Login/>)
+  			return (<div className='AppContainer'><Login/></div>)
 	  	case 'Pushboard':
-	  		return (<Pushboard/>)
+	  		return (<div className='AppContainer'><Pushboard/></div>)
   		case 'Editor':
-  			return (<Editor/>)
+  			return (<div className='AppContainer'><Editor/></div>)
   		case 'Splash':
-  			return (<Splash/>)
+  			return (<div className='AppContainer'><Splash/></div>)
 			default:
 				return (<div>No valid value for "screen" prop</div>)
   	}

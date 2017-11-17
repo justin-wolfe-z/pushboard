@@ -1,5 +1,10 @@
 .App {
+	display: inline-block;
   text-align: center;
+}
+
+.AppContainer {
+	text-align: center;
 }
 
 .Button {
@@ -7,4 +12,20 @@
   border: 1px solid black;
   padding: 1%;
   margin: 1%;
+}
+
+.actionButton {
+	display: inline-block;
+	font-weight: bold;
+	border:1px solid black;
+  padding: .2%;
+  margin: .2%;
+}
+
+.boardNotSelecting {
+	background-color: white;
+}
+
+.boardSelecting {
+	background-color: blue;
 }

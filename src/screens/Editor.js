@@ -14,10 +14,10 @@ class Editor extends Component {
 						<div>text: {this.props.button.text}</div>
 					</div>
 					<div 
-						className='save' 
+						className='actionButton' 
 						onClick={() => this.props.click()}
 					>
-						Save and Exit
+						Back to Board
 					</div>
 			</div>
 		)

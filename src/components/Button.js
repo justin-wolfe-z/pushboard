@@ -6,7 +6,7 @@ class Button extends Component {
 	render() {
 		return (
 			<div 
-				className='Button' 
+				className={['Button',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
 				onClick={() => this.props.click(this.props.id)}
 			>
 				{this.props.icon}
@@ -14,6 +14,13 @@ class Button extends Component {
 		)
 	}
 }
+     	 
+const mapStateToProps = state => {
+  return {
+  	isSelecting: state.isSelecting
+  }
+}
+
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -21,4 +28,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(Button)
+export default connect(mapStateToProps,mapDispatchToProps)(Button)

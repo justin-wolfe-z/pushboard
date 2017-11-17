@@ -17,7 +17,12 @@ const reducer = (state = initialState, action) => {
     	return Object.assign({}, state, {
     		screen: "Pushboard",
     		selectedButton: null
-    	})    	
+    	})    
+    case "TO_EDIT_SELECT":
+    	return Object.assign({}, state, {
+    		screen: "Pushboard",
+    		isSelecting: true
+    	})      			
 		default:
 			return state
 	}

@@ -22,7 +22,7 @@ class Board extends Component {
 
 const mapStateToProps = state => {
   return {
-    buttons: state.buttons
+    buttons: state.buttons,
   }
 }
 

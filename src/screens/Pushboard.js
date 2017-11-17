@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
+import ButtonBar from '../components/ButtonBar'
 import '../components/App.css';
 
 class Pushboard extends Component {
@@ -9,7 +10,8 @@ class Pushboard extends Component {
     return (
       <div className='Pushboard'>
         <StatusBar />
-        <Board />
+        <Board/>
+        <ButtonBar />
       </div>
     )
   }
