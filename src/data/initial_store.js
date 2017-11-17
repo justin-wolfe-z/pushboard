@@ -37,7 +37,7 @@ const initialState = {
 	isFetching: false,
 	isSelecting: false,
 	isLoggedIn: false,
-	screen: "Pushboard"
+	screen: "Login"
 }
 
 export default initialState

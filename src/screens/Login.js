@@ -4,7 +4,12 @@ import {connect} from 'react-redux'
 class Login extends Component {
 	render() {
 		return (
-			<div className='login'>Login</div>
+			<div className='login'>
+				<div>Pushboard</div>
+				<input type='text' placeholder='email'/>
+				<input type='text' placeholder='api_key'/>
+				<div>Connect</div>
+			</div>
 		)
 	}
 }
