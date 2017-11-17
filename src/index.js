@@ -1,19 +1,22 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { logIn } from './actions/index'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk';
+import { logIn, loadThunk } from './actions/index'
 import App from './components/App'
 import reducer from './reducers'
 
-const store = createStore(reducer)
+const store = createStore(reducer,applyMiddleware(thunk,logger))
 console.log(store.getState())
 
-const unsubscribe = store.subscribe(() =>
+/*const unsubscribe = store.subscribe(() =>
   console.log(store.getState())
-)
+)*/
 
 store.dispatch(logIn())
+store.dispatch(loadThunk())
 
 render(
   <Provider store={store}>
