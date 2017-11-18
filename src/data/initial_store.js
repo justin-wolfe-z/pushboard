@@ -38,6 +38,7 @@ const initialState = {
 	isSelecting: false,
 	isLoggedIn: false,	
 	selectedButton: null,
+	splashText: 'Loading',
 	screen: "Pushboard"
 }
 

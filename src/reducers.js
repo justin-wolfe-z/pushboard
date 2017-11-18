@@ -15,6 +15,13 @@ const reducer = (state = initialState, action) => {
                 loggedIn: true,
                 screen: 'Pushboard'
         })
+        case "LOGIN_ERROR":
+            return Object.assign({}, state, {
+                isFetching: false,    
+                loggedIn: true,
+                splashText: 'Error logging in: ' + action.text,
+                screen: 'Splash'
+        })
         case "TO_EDITOR":
         	return Object.assign({}, state, {
         		screen: "Editor",

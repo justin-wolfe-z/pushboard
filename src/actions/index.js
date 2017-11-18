@@ -23,6 +23,9 @@ export const loginThunk = (text) => {
 				dispatch(loginSuccess(data.message.hound));
 	  	})
   	)
+  	.catch(error => {
+  		dispatch(loginError(error))
+  	})
 	}
 }
 
