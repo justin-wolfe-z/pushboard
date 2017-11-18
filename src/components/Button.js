@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     click: (buttonID, selMode) => {
-    	selMode ? dispatch(toEditor(buttonID)) : console.log("nada")
+    	selMode ? dispatch(toEditor(buttonID)) : dispatch(clickButton(buttonID))
     }
   }
 }

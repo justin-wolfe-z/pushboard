@@ -4,9 +4,16 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "CLICK_BUTTON":
 			return state
+        case "LOGIN_PROGRESS":
+            return Object.assign({}, state, {
+                isFetching: true,
+                screen: 'Splash'
+        })                
 		case "LOGIN_SUCCESS":
 			return Object.assign({}, state, {
-            loggedIn: true
+                isFetching: false,    
+                loggedIn: true,
+                screen: 'Pushboard'
         })
         case "TO_EDITOR":
         	return Object.assign({}, state, {
