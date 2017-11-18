@@ -7,11 +7,26 @@ class Login extends Component {
 			<div className='login'>
 				<div>Pushboard</div>
 				<input type='text' placeholder='email'/>
-				<input type='text' placeholder='api_key'/>
-				<div>Connect</div>
+				<br/>
+				<input type='text' placeholder='api key'/>
+				<br/>
+				<div className='actionButton'>Sign up</div>
+				<div className='actionButton'>Login</div>
 			</div>
 		)
 	}
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    button: state.selectedButton
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    //click: () => dispatch(toPushboard())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

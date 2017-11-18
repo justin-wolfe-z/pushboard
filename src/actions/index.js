@@ -1,3 +1,5 @@
+import { loginURL } from '../data/shared_constants'
+
 export const CLICK_BUTTON = 'CLICK_BUTTON'
 export const clickButton = (target) => {
 	return {type: CLICK_BUTTON, target}
@@ -9,28 +11,33 @@ export const logIn = (text) => {
 }
 
 //thunk for loading user data (with fake API right now)
-export const LOAD_THUNK = 'LOAD_THUNK'
-export const loadThunk = (text) => {
+export const LOGIN_THUNK = 'LOGIN_THUNK'
+export const loginThunk = (text) => {
 	return (dispatch) => {
-		dispatch(loading());
-		fetch("https://dog.ceo/api/breeds/list/all")
+		dispatch(loginProgress());
+		fetch(loginURL)
     .then(response => response.json()
 	  	.then(data => {
 	  		console.log(data.message);
-				dispatch(loaded(data.message.hound));
+				dispatch(loginSuccess(data.message.hound));
 	  	})
   	)
 	}
 }
 
-export const LOADING = 'LOADING'
-export const loading = (text) => {
-	return {type: LOADING, text}
+export const LOGIN_PROGRESS = 'LOGIN_PROGRESS'
+export const loginProgress = (text) => {
+	return {type: LOGIN_PROGRESS, text}
 }
 
-export const LOADED = 'LOADED'
-export const loaded = (text) => {
-	return {type: LOADED, text}
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const loginSuccess= (text) => {
+	return {type: LOGIN_SUCCESS, text}
+}
+
+export const LOGIN_ERROR = 'LOGIN_ERROR'
+export const loginError = (text) => {
+	return {type: LOGIN_ERROR, text}
 }
 
 //action for moving to the editor for a particular button from the pushboard

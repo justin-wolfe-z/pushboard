@@ -4,7 +4,7 @@ import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk';
-import { logIn, loadThunk, toEditor } from './actions/index'
+import { loginThunk, toEditor } from './actions/index'
 import App from './components/App'
 import reducer from './reducers'
 
@@ -14,8 +14,7 @@ const store = createStore(reducer,applyMiddleware(thunk,logger))
   console.log(store.getState())
 )*/
 
-store.dispatch(logIn())
-store.dispatch(loadThunk())
+store.dispatch(loginThunk())
 
 render(
   <Provider store={store}>

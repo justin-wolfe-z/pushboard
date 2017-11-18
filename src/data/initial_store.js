@@ -38,7 +38,7 @@ const initialState = {
 	isSelecting: false,
 	selectedButton: null,
 	isLoggedIn: false,
-	screen: "Pushboard"
+	screen: "Login"
 }
 
 export default initialState
