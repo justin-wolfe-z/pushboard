@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {toEditSelect} from '../actions/index'
+import {toggleEditSelect} from '../actions/index'
 
 class ButtonBar extends Component {
 	render() {
@@ -18,7 +18,7 @@ class ButtonBar extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: () => dispatch(toEditSelect())
+    click: () => dispatch(toggleEditSelect())
   }
 }
 

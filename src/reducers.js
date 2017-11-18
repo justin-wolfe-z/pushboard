@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
     		screen: "Pushboard",
     		selectedButton: null
     	})    
-    case "TO_EDIT_SELECT":
+    case "TOGGLE_EDIT_SELECT":
     	return Object.assign({}, state, {
     		screen: "Pushboard",
     		isSelecting: !state.isSelecting

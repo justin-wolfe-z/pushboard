@@ -39,9 +39,9 @@ export const toEditor = (buttonID) => {
 	return {type: TO_EDITOR, buttonID}
 }
 
-export const TO_EDIT_SELECT = 'TO_EDIT_SELECT'
-export const toEditSelect = () => {
-	return {type: TO_EDIT_SELECT}
+export const TOGGLE_EDIT_SELECT = 'TOGGLE_EDIT_SELECT'
+export const toggleEditSelect = () => {
+	return {type: TOGGLE_EDIT_SELECT}
 }
 
 
