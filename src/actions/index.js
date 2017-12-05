@@ -1,4 +1,4 @@
-import { loginURL } from '../data/shared_constants'
+import { URLs } from '../data/shared_constants'
 
 export const CLICK_BUTTON = 'CLICK_BUTTON'
 export const clickButton = (target) => {
@@ -13,10 +13,17 @@ export const logIn = (text) => {
 //LOGIN
 //thunk for loading user data (with fake API right now)
 export const LOGIN_THUNK = 'LOGIN_THUNK'
-export const loginThunk = (text) => {
+export const loginThunk = (auth) => {
 	return (dispatch) => {
-		dispatch(loginProgress());
-		fetch(loginURL)
+		dispatch(logIn())
+		dispatch(loginProgress())
+		let fetchSet = {
+			method:'GET',
+			headers:{
+				'Authorization':auth,
+			},
+		}
+		fetch(URLs.base + URLs.route.login[1],fetchSet)
     .then(response => response.json()
 	  	.then(data => {
 	  		console.log(data.message);

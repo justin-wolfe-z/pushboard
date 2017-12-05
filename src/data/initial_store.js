@@ -1,5 +1,7 @@
 const initialState = {
-	account:"justin.wolfe@gmail.com",
+	accountEmail:"justin.wolfe@gmail.com",
+	apiKey:"jlfsdkljdfsljjklfds",
+	connectionStatus:"connected",
 	buttons: [
 		{
 			id:0,
@@ -34,6 +36,7 @@ const initialState = {
 			hookURL:"hookURLLL",
 		}
 	],
+	log: [],
 	isFetching: false,
 	isSelecting: false,
 	isLoggedIn: false,	

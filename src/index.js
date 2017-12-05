@@ -10,11 +10,7 @@ import reducer from './reducers'
 
 const store = createStore(reducer,applyMiddleware(thunk,logger))
 
-/*const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)*/
-
-store.dispatch(loginThunk())
+store.dispatch(loginThunk('justin.wolfe@gmail.com:fkdslfdjsklfdfd'))
 
 render(
   <Provider store={store}>
