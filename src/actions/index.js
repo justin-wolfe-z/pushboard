@@ -15,19 +15,23 @@ export const logIn = (text) => {
 export const LOGIN_THUNK = 'LOGIN_THUNK'
 export const loginThunk = (auth) => {
 	return (dispatch) => {
+		console.log(auth);
 		dispatch(logIn())
 		dispatch(loginProgress())
 		let fetchSet = {
 			method:'GET',
-			headers:{
-				'Authorization':auth,
-			},
+			headers: {
+				'Accept': 'application/json',
+			  'Authorization': auth,
+		  	'Content-Type': 'application/json'
+			}
 		}
+		console.log(fetchSet)
 		fetch(URLs.base + URLs.route.login[1],fetchSet)
     .then(response => response.json()
 	  	.then(data => {
-	  		console.log(data.message);
-				dispatch(loginSuccess(data.message.hound));
+	  		console.log(data);
+				dispatch(loginSuccess(data));
 	  	})
   	)
   	.catch(error => {
