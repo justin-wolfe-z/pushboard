@@ -11,6 +11,9 @@ const reducer = (state = initialState, action) => {
         })                
 		case "LOGIN_SUCCESS":
 			return Object.assign({}, state, {
+                email: action.data.email,
+                key: action.data.key,
+                buttons: action.data.buttons,
                 isFetching: false,    
                 loggedIn: true,
                 screen: 'Pushboard'

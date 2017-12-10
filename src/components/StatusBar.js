@@ -11,7 +11,7 @@ class StatusBar extends Component {
 
 const mapStateToProps = state => {
   return {
-    account: state.accountEmail,
+    account: state.email,
     status: state.connectionStatus
   }
 }

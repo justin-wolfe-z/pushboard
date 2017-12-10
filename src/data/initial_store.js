@@ -1,6 +1,6 @@
 const initialState = {
-	accountEmail:"justin.wolfe@gmail.com",
-	apiKey:"jlfsdkljdfsljjklfds",
+	email:"justin.wolfe@gmail.com",
+	key:"jlfsdkljdfsljjklfds",
 	connectionStatus:"connected",
 	buttons: [
 		{

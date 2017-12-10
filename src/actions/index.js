@@ -5,9 +5,9 @@ export const clickButton = (target) => {
 	return {type: CLICK_BUTTON, target}
 }
 
-export const LOG_IN = 'LOG_IN'
-export const logIn = (text) => {
-	return {type: LOG_IN, text}
+export const LOG_IN_START = 'LOG_IN'
+export const logInStart = (text) => {
+	return {type: LOG_IN_START, text}
 }
 
 //LOGIN
@@ -15,7 +15,7 @@ export const logIn = (text) => {
 export const LOGIN_THUNK = 'LOGIN_THUNK'
 export const loginThunk = (auth) => {
 	return (dispatch) => {
-		dispatch(logIn())
+		dispatch(logInStart())
 		dispatch(loginProgress())
 		let request= fetchPrep("login",auth)
 		fetch(request.url, request.settings)
@@ -31,8 +31,8 @@ export const loginProgress = (text) => {
 }
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const loginSuccess= (text) => {
-	return {type: LOGIN_SUCCESS, text}
+export const loginSuccess= (data) => {
+	return {type: LOGIN_SUCCESS, data}
 }
 
 export const LOGIN_ERROR = 'LOGIN_ERROR'
