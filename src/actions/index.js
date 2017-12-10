@@ -1,4 +1,4 @@
-import { URLs } from '../data/shared_constants'
+import { URLs, fetchSettings } from '../data/shared_constants'
 
 export const CLICK_BUTTON = 'CLICK_BUTTON'
 export const clickButton = (target) => {
@@ -15,28 +15,12 @@ export const logIn = (text) => {
 export const LOGIN_THUNK = 'LOGIN_THUNK'
 export const loginThunk = (auth) => {
 	return (dispatch) => {
-		console.log(auth);
 		dispatch(logIn())
 		dispatch(loginProgress())
-		let fetchSet = {
-			method:'GET',
-			headers: {
-				'Accept': 'application/json',
-			  'Authorization': auth,
-		  	'Content-Type': 'application/json'
-			}
-		}
-		console.log(fetchSet)
-		fetch(URLs.base + URLs.route.login[1],fetchSet)
-    .then(response => response.json()
-	  	.then(data => {
-	  		console.log(data);
-				dispatch(loginSuccess(data));
-	  	})
-  	)
-  	.catch(error => {
-  		dispatch(loginError(error))
-  	})
+		fetch(URLs.base + URLs.route.login[1],fetchSettings(auth))
+    	.then(response => response.json())
+	  	.then(data => dispatch(loginSuccess(data)))
+  		.catch(error => dispatch(loginError(error)))
 	}
 }
 

@@ -1,5 +1,5 @@
 export const URLs = {
-	base:'http://192.168.0.107:4000',
+	base:'http://192.168.0.105:4000',
 	route:{
 		login:['GET','/user'],
 		signup:['POST','/user'],
@@ -10,25 +10,15 @@ export const URLs = {
 	}
 }
 
-//fake API data for mocking stuff up until I set up a server 
-export const fakeLoginSuccess = {
-	status:"success",
-	type:"login",
-	email:"justin.wolfe@gmail.com",
-	key:"fakdfjdfkfjdkfjdkfdj",
-	buttons:[]
-}
-export const fakeLoginError = {
-	status:"error",
-	message:"error logging in"
-}
-export const fakePushSuccess = {
-	status:"success",
-	message:"successful push"
-}
-export const fakePushError = {
-	status:"error",
-	message:"error pushing"
+export const fetchSettings = (auth) => {
+	return {
+		method:'GET',
+		headers: {
+			'Accept': 'application/json',
+		  'Authorization': auth,
+	  	'Content-Type': 'application/json'
+		}
+	}
 }
 
 

@@ -8,7 +8,7 @@ import { loginThunk } from './actions/index'
 import App from './components/App'
 import reducer from './reducers'
 
-const store = createStore(reducer,applyMiddleware(thunk,logger))
+const store = createStore(reducer, applyMiddleware(thunk,logger))
 
 store.dispatch(loginThunk('j@zapier.com:ed457159a5dc6767499269767d7240d5'))
 
