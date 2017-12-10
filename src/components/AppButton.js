@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {} from '../actions/index'
 
-class ActionButton extends Component {
+class AppButton extends Component {
 	render() {
 		return (
 			<div 
 				className='AppButton' 
 				onClick={() => this.props.click(this.props)}
 			>
+				{this.props.name}
 			</div>
 		)
 	}

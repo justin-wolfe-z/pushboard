@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {toggleEditSelect} from '../actions/index'
+import AppButton from './AppButton'
 
 class ButtonBar extends Component {
 	render() {
 		return (
 			<div>
-				<div 
-					className='actionButton'
-					onClick={() => this.props.click()}
-				>Edit</div>
-				<div className='actionButton'>Logs</div>
+				<AppButton name="Edit"/>
+				<AppButton name="Logs"/>
 			</div>
 		)
 	}
