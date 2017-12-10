@@ -4,15 +4,17 @@ export const URLs = {
 		login:['GET','/user'],
 		signup:['POST','/user'],
 		reset:['POST','/reset'],
-		push:['POST','PUSH'],
-		save:['POST','SAVE'],
-		quit:['POST','QUIT']
+		push:['POST','/push'],
+		save:['POST','/save'],
+		quit:['POST','/quit']
 	}
 }
 
-export const fetchSettings = (auth) => {
+export const fetchPrep = (route, auth) => {
 	return {
-		method:'GET',
+		url : URLs.base + URLs.route[route][1],
+		settings: {
+		method:URLs.route[route][0],
 		headers: {
 			'Accept': 'application/json',
 		  'Authorization': auth,
@@ -20,5 +22,5 @@ export const fetchSettings = (auth) => {
 		}
 	}
 }
-
+}
 

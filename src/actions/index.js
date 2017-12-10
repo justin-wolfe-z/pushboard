@@ -1,4 +1,4 @@
-import { URLs, fetchSettings } from '../data/shared_constants'
+import {fetchPrep} from '../data/shared_constants'
 
 export const CLICK_BUTTON = 'CLICK_BUTTON'
 export const clickButton = (target) => {
@@ -17,7 +17,8 @@ export const loginThunk = (auth) => {
 	return (dispatch) => {
 		dispatch(logIn())
 		dispatch(loginProgress())
-		fetch(URLs.base + URLs.route.login[1],fetchSettings(auth))
+		let request= fetchPrep("login",auth)
+		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => dispatch(loginSuccess(data)))
   		.catch(error => dispatch(loginError(error)))
@@ -42,7 +43,7 @@ export const loginError = (text) => {
 //PUSH
 //thunk for using button pushes to trigger Zaps
 export const PUSH_THUNK = 'PUSH_THUNK'
-export const pushThunk = (text) => {
+export const pushThunk = (button) => {
 	/*return (dispatch) => {
 		dispatch(loginProgress());
 		fetch(loginURL)
