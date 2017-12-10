@@ -10,6 +10,7 @@ export const URLs = {
 	}
 }
 
+//prep an object to use for fetch requests to server
 export const fetchPrep = (route, auth, body) => {
 	return {
 		url : URLs.base + URLs.route[route][1],

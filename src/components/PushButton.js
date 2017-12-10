@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {pushThunk, toEditor} from '../actions/index'
 
-class Button extends Component {
+class PushButton extends Component {
 	render() {
 		return (
 			<div 
-				className={['Button',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
+				className={['PushButton',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
 				onClick={() => this.props.click(this.props, this.props.isSelecting)}
 			>
 				{this.props.icon}
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Button)
+export default connect(mapStateToProps,mapDispatchToProps)(PushButton)

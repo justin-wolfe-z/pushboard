@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import Button from './Button'
+import PushButton from './PushButton'
 
 class Board extends Component {
 	render() {
@@ -8,7 +8,7 @@ class Board extends Component {
 			<div>
 					{
 						this.props.buttons.map((button) => {
-							return <Button 
+							return <PushButton 
 								key={button.id} 
 								icon={button.icon}
 								id={button.id}

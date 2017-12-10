@@ -6,6 +6,8 @@
 
 .AppContainer {
 	text-align: center;
+  border: 1px solid black;
+  width: 50%;
 }
 
 .Button {
@@ -15,6 +17,10 @@
   margin: 1%;
   cursor: pointer;
   user-select: none;
+}
+
+.StatusBar {
+  border-bottom: 1px solid black;
 }
 
 .actionButton {

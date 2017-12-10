@@ -48,7 +48,7 @@ export const pushThunk = (button) => {
 		dispatch(pushStart())
 		dispatch(pushProgress())
 		let auth = getState().email + ":" + getState().key
-		let request= fetchPrep("push", auth, JSON.stringify(button))
+		let request = fetchPrep("push", auth, JSON.stringify(button))
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => dispatch(pushSuccess(data)))
@@ -67,8 +67,8 @@ export const pushProgress = (text) => {
 }
 
 export const PUSH_SUCCESS = 'PUSH_SUCCESS'
-export const pushSuccess= (text) => {
-	return {type: PUSH_SUCCESS, text}
+export const pushSuccess= (data) => {
+	return {type: PUSH_SUCCESS, data}
 }
 
 export const PUSH_ERROR = 'PUSH_ERROR'

@@ -42,7 +42,7 @@ const initialState = {
 	isLoggedIn: false,	
 	selectedButton: null,
 	splashText: 'Loading',
-	screen: "Pushboard"
+	screen: "Login"
 }
 
 export default initialState
