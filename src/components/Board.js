@@ -12,6 +12,8 @@ class Board extends Component {
 								key={button.id} 
 								icon={button.icon}
 								id={button.id}
+								text={button.text}
+								type={button.type}
 							/>
 						})
 					}

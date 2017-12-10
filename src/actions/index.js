@@ -48,8 +48,7 @@ export const pushThunk = (button) => {
 		dispatch(pushStart())
 		dispatch(pushProgress())
 		let auth = getState().email + ":" + getState().key
-		let buttonTest = {"id":0,"type":"stAtIc","text":"tester","icon":"icsonfdfdfdfidfdcs"}
-		let request= fetchPrep("push", auth, JSON.stringify(buttonTest))
+		let request= fetchPrep("push", auth, JSON.stringify(button))
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => dispatch(pushSuccess(data)))

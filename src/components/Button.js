@@ -7,7 +7,7 @@ class Button extends Component {
 		return (
 			<div 
 				className={['Button',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
-				onClick={() => this.props.click(this.props.id,this.props.isSelecting)}
+				onClick={() => this.props.click(this.props, this.props.isSelecting)}
 			>
 				{this.props.icon}
 			</div>
@@ -17,15 +17,15 @@ class Button extends Component {
      	 
 const mapStateToProps = state => {
   return {
-  	isSelecting: state.isSelecting
+  	isSelecting: state.isSelecting,
   }
 }
 
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: (buttonID, selMode) => {
-    	selMode ? dispatch(toEditor(buttonID)) : dispatch(pushThunk(buttonID))
+    click: (button, selMode) => {
+    	selMode ? dispatch(toEditor(button.id)) : dispatch(pushThunk(button))
     }
   }
 }
