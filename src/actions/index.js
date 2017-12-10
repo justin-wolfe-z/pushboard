@@ -5,7 +5,7 @@ export const clickButton = (target) => {
 	return {type: CLICK_BUTTON, target}
 }
 
-export const LOG_IN_START = 'LOG_IN'
+export const LOG_IN_START = 'LOG_IN_START'
 export const logInStart = (text) => {
 	return {type: LOG_IN_START, text}
 }
@@ -44,16 +44,22 @@ export const loginError = (text) => {
 //thunk for using button pushes to trigger Zaps
 export const PUSH_THUNK = 'PUSH_THUNK'
 export const pushThunk = (button) => {
-	/*return (dispatch) => {
-		dispatch(loginProgress());
-		fetch(loginURL)
-    .then(response => response.json()
-	  	.then(data => {
-	  		console.log(data.message);
-				dispatch(loginSuccess(data.message.hound));
-	  	})
-  	)
-	}*/
+	return (dispatch,getState) => {
+		dispatch(pushStart())
+		dispatch(pushProgress())
+		let auth = getState().email + ":" + getState().key
+		let buttonTest = {"id":0,"type":"stAtIc","text":"tester","icon":"icsonfdfdfdfidfdcs"}
+		let request= fetchPrep("push", auth, JSON.stringify(buttonTest))
+		fetch(request.url, request.settings)
+    	.then(response => response.json())
+	  	.then(data => dispatch(pushSuccess(data)))
+  		.catch(error => dispatch(pushError(error)))
+	}
+}
+
+export const PUSH_START = 'PUSH_START'
+export const pushStart = (text) => {
+	return {type: PUSH_START, text}
 }
 
 export const PUSH_PROGRESS = 'PUSH_PROGRESS'

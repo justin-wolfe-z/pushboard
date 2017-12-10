@@ -10,7 +10,7 @@ export const URLs = {
 	}
 }
 
-export const fetchPrep = (route, auth) => {
+export const fetchPrep = (route, auth, body) => {
 	return {
 		url : URLs.base + URLs.route[route][1],
 		settings: {
@@ -19,7 +19,8 @@ export const fetchPrep = (route, auth) => {
 			'Accept': 'application/json',
 		  'Authorization': auth,
 	  	'Content-Type': 'application/json'
-		}
+		},
+		body: body
 	}
 }
 }

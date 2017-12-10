@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {clickButton, toEditor} from '../actions/index'
+import {pushThunk, toEditor} from '../actions/index'
 
 class Button extends Component {
 	render() {
@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     click: (buttonID, selMode) => {
-    	selMode ? dispatch(toEditor(buttonID)) : dispatch(clickButton(buttonID))
+    	selMode ? dispatch(toEditor(buttonID)) : dispatch(pushThunk(buttonID))
     }
   }
 }
