@@ -4,14 +4,15 @@ import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
 import ButtonBar from '../components/ButtonBar'
 import '../components/App.css';
+import {AppButtons} from '../data/shared_constants'
 
 class Pushboard extends Component {
   render() {
     return (
       <div className='Pushboard'>
         <StatusBar />
-        <Board/>
-        <ButtonBar />
+        <Board />
+        <ButtonBar buttons={AppButtons['Pushboard']}/>
       </div>
     )
   }

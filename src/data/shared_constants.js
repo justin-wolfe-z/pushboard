@@ -1,3 +1,5 @@
+import { clickButton } from '../actions/index'
+
 export const URLs = {
 	base:'http://192.168.0.105:4000',
 	route:{
@@ -24,5 +26,25 @@ export const fetchPrep = (route, auth, body) => {
 		body: body
 	}
 }
+}
+
+export const AppButtons = {
+	Pushboard: [
+		{
+			text:'Edit',
+			action: function (){
+				clickButton()
+			}
+		},
+		{
+			text:'Logs',
+			action: function (){
+				clickButton()
+			}			
+		}
+	],
+	Login: [],
+	Editor: [],
+	Splash: [],
 }
 
