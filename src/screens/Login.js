@@ -25,7 +25,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    //click: () => dispatch(toPushboard())
+    click: () => {
+    	//dispatch(toPushboard()
+    }
   }
 }
 
