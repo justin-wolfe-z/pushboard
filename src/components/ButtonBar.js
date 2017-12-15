@@ -11,6 +11,7 @@ class ButtonBar extends Component {
 							return <AppButton
 								key={button.text} 
 								name={button.text}
+								screen={button.screen}
 							/>
 						})
 					}
