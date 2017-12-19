@@ -19,12 +19,16 @@ export const accountThunk = (type, auth) => {
 	return (dispatch) => {
 		dispatch(logInStart())
 		dispatch(loginProgress())
-		let request= fetchPrep(type, auth)
+		let request = fetchPrep(type, auth)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
 	  		console.log(data);
-				//dispatch(loginSuccess(data))
+	  		if(data.status==="new"){
+	  			console.log("new account!")
+	  		} else {
+					dispatch(loginSuccess(data))
+	  		}
 			})
   		.catch(error => {
   			console.log(error);

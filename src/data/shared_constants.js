@@ -17,15 +17,14 @@ export const fetchPrep = (route, auth, body) => {
 	return {
 		url: URLs.base + URLs.route[route][1],
 		settings: {
-		method: URLs.route[route][0],
-		headers: {
-			'Accept': 'application/json',
-		  'Authorization': 'Basic ' + btoa(auth),
-	  	'Content-Type': 'application/json'
-		},
-		body: body
+			method: URLs.route[route][0],
+			headers: {
+				'Accept': 'application/json',
+			  'Authorization': 'Basic ' + btoa(auth),
+		  	'Content-Type': 'application/json'
+			},
+		}
 	}
-}
 }
 
 export const AppButtons = {
