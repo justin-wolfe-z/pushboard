@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {} from '../actions/index'
+import {clickButton,loginThunk} from '../actions/index'
 
 class AppButton extends Component {
 	render() {
@@ -20,13 +20,14 @@ const mapStateToProps = state => {
   }
 }
 
-
+//there has to be a better way to do this!
 const mapDispatchToProps = dispatch => {
   return {
     click: (button ) => {
-    	console.log("App Button!", button)
+    		console.log(button)
+    	}
     }
   }
-}
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(AppButton)

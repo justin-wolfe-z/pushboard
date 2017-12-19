@@ -12,6 +12,7 @@ class ButtonBar extends Component {
 								key={button.text} 
 								name={button.text}
 								screen={button.screen}
+								action={button.action}
 							/>
 						})
 					}

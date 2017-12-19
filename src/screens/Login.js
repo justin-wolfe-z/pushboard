@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import ButtonBar from '../components/ButtonBar'
+import {AppButtons} from '../data/shared_constants'
 
 class Login extends Component {
 	render() {
@@ -10,8 +12,7 @@ class Login extends Component {
 				<br/>
 				<input type='text' placeholder='api key'/>
 				<br/>
-				<div className='actionButton'>Sign up</div>
-				<div className='actionButton'>Login</div>
+				<ButtonBar buttons={AppButtons['Login']}/>
 			</div>
 		)
 	}
@@ -26,7 +27,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     click: () => {
-    	//dispatch(toPushboard()
+    	//
     }
   }
 }

@@ -1,4 +1,4 @@
-import { clickButton } from '../actions/index'
+import { clickButton, loginThunk } from '../actions/index'
 
 export const URLs = {
 	base: 'http://192.168.0.114:4000',
@@ -33,19 +33,23 @@ export const AppButtons = {
 		{
 			text:'Edit',
 			screen:'Pushboard',
-			action: function (){
-				clickButton()
-			}
 		},
 		{
 			text:'Logs',
 			screen:'Pushboard',
-			action: function (){
-				clickButton()
-			}			
 		}
 	],
-	Login: [],
+	Login: [
+		{
+			text:'Sign Up',
+			screen:'Login',
+		},
+		{
+			text:'Log In',
+			screen:'Login',
+			action:'loginThunk'
+		}	
+	],
 	Editor: [],
 	Splash: [],
 }

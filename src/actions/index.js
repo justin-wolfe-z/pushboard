@@ -1,8 +1,10 @@
 import {fetchPrep} from '../data/shared_constants'
 
 export const CLICK_BUTTON = 'CLICK_BUTTON'
-export const clickButton = (target) => {
-	return {type: CLICK_BUTTON, target}
+export const clickButton = (button) => {
+	return (dispatch) => {
+		console.log(button)
+	}
 }
 
 export const LOG_IN_START = 'LOG_IN_START'
