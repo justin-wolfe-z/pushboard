@@ -1,18 +1,28 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
-import {AppButtons} from '../data/shared_constants'
+import AppButton from '../components/AppButton'
+import {clickButton,loginThunk} from '../actions/index'
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {email:'', key:''};
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+  	this.setState({[event.target.name]: event.target.value})  
+  }
 	render() {
 		return (
 			<div className='login'>
-				<div>Pushboard</div>
-				<input type='text' placeholder='email'/>
+				<div>Tap</div>
+				<input type='text' name='email' placeholder='email' value={this.state.email} onChange={this.handleChange}/>
 				<br/>
-				<input type='text' placeholder='api key'/>
+				<input type='text' name='key' placeholder='api key' value={this.state.key} onChange={this.handleChange}/>
 				<br/>
-				<ButtonBar buttons={AppButtons['Login']}/>
+				<div name='Login' onClick={() => this.props.login(this.state)}>Login</div>
+				<div name='Signup' onClick={() => this.props.signup(this.state)}>Signup</div>
 			</div>
 		)
 	}
@@ -20,14 +30,18 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    button: state.selectedButton
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: () => {
-    	//
+    login: (state) => {
+    	console.log("login")
+    	console.log(state)
+    },
+    signup: (state) => {
+    	console.log("signup")
+    	console.log(state)
     }
   }
 }

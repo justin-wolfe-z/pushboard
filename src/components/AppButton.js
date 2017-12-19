@@ -5,10 +5,7 @@ import {clickButton,loginThunk} from '../actions/index'
 class AppButton extends Component {
 	render() {
 		return (
-			<div 
-				className='AppButton' 
-				onClick={() => this.props.click(this.props)}
-			>
+			<div className='AppButton'>
 				{this.props.name}
 			</div>
 		)
@@ -23,11 +20,11 @@ const mapStateToProps = state => {
 //there has to be a better way to do this!
 const mapDispatchToProps = dispatch => {
   return {
-    click: (button ) => {
-    		console.log(button)
-    	}
+    click: (props) => {
+    	console.log("click triggered")
     }
   }
+}
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(AppButton)
