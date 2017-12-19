@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
 import AppButton from '../components/AppButton'
-import {clickButton,loginThunk} from '../actions/index'
+import {clickButton, accountThunk} from '../actions/index'
 
 class Login extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ class Login extends Component {
 				<br/>
 				<input type='text' name='key' placeholder='api key' value={this.state.key} onChange={this.handleChange}/>
 				<br/>
-				<div name='Login' onClick={() => this.props.login(this.state)}>Login</div>
-				<div name='Signup' onClick={() => this.props.signup(this.state)}>Signup</div>
+				<div className='ActionButton' name='Login' onClick={() => this.props.login(this.state)}>Login</div>
+				<div className='ActionButton' name='Signup' onClick={() => this.props.signup(this.state)}>Signup</div>
 			</div>
 		)
 	}
@@ -36,12 +36,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     login: (state) => {
-    	console.log("login")
-    	console.log(state)
+    	//maybe insert some email validation stuff before this? or into the action creator?
+    	dispatch(accountThunk('login', state.email.trim() + ':' + state.key.trim()))
     },
     signup: (state) => {
-    	console.log("signup")
-    	console.log(state)
+    	dispatch(accountThunk('signup', state.email.trim()))
     }
   }
 }

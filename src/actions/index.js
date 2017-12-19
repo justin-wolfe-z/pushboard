@@ -14,16 +14,22 @@ export const logInStart = (text) => {
 
 //LOGIN
 //thunk for loading user data (with fake API right now)
-export const LOGIN_THUNK = 'LOGIN_THUNK'
-export const loginThunk = (auth) => {
+export const ACCOUNT_THUNK = 'ACCOUNT_THUNK'
+export const accountThunk = (type, auth) => {
 	return (dispatch) => {
 		dispatch(logInStart())
 		dispatch(loginProgress())
-		let request= fetchPrep("login",auth)
+		let request= fetchPrep(type, auth)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
-	  	.then(data => dispatch(loginSuccess(data)))
-  		.catch(error => dispatch(loginError(error)))
+	  	.then(data => {
+	  		console.log(data);
+				//dispatch(loginSuccess(data))
+			})
+  		.catch(error => {
+  			console.log(error);
+  			dispatch(loginError(error))
+  		})
 	}
 }
 
