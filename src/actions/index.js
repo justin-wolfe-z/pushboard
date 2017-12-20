@@ -23,11 +23,12 @@ export const accountThunk = (type, auth) => {
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
-	  		console.log(data);
 	  		if(data.status==="new"){
-	  			console.log("new account!")
-	  		} else {
-					dispatch(loginSuccess(data))
+	  			dispatch(loginSuccess(data.body))
+	  		} else if(data.status==="existing"){
+					dispatch(loginSuccess(data.body))
+	  		} else if (data.status==="error"){
+	  			dispatch(loginError(data.message))
 	  		}
 			})
   		.catch(error => {
