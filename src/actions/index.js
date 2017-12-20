@@ -7,9 +7,9 @@ export const clickButton = (button) => {
 	}
 }
 
-export const LOG_IN_START = 'LOG_IN_START'
-export const logInStart = (text) => {
-	return {type: LOG_IN_START, text}
+export const ACCOUNT_START = 'ACCOUNT_START'
+export const accountStart = (text) => {
+	return {type: ACCOUNT_START, text}
 }
 
 //LOGIN
@@ -17,40 +17,39 @@ export const logInStart = (text) => {
 export const ACCOUNT_THUNK = 'ACCOUNT_THUNK'
 export const accountThunk = (type, auth) => {
 	return (dispatch) => {
-		dispatch(logInStart())
-		dispatch(loginProgress())
+		dispatch(accountStart())
+		dispatch(accountProgress())
 		let request = fetchPrep(type, auth)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
 	  		if(data.status==="new"){
-	  			dispatch(loginSuccess(data.body))
+	  			dispatch(accountSuccess(data.body))
 	  		} else if(data.status==="existing"){
-					dispatch(loginSuccess(data.body))
+					dispatch(accountSuccess(data.body))
 	  		} else if (data.status==="error"){
-	  			dispatch(loginError(data.message))
+	  			dispatch(accountError(data.message))
 	  		}
 			})
   		.catch(error => {
-  			console.log(error);
-  			dispatch(loginError(error))
+  			dispatch(accountError(error))
   		})
 	}
 }
 
-export const LOGIN_PROGRESS = 'LOGIN_PROGRESS'
-export const loginProgress = (text) => {
-	return {type: LOGIN_PROGRESS, text}
+export const ACCOUNT_PROGRESS = 'ACCOUNT_PROGRESS'
+export const accountProgress = (text) => {
+	return {type: ACCOUNT_PROGRESS, text}
 }
 
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const loginSuccess= (data) => {
-	return {type: LOGIN_SUCCESS, data}
+export const ACCOUNT_SUCCESS = 'ACCOUNT_SUCCESS'
+export const accountSuccess= (data) => {
+	return {type: ACCOUNT_SUCCESS, data}
 }
 
-export const LOGIN_ERROR = 'LOGIN_ERROR'
-export const loginError = (text) => {
-	return {type: LOGIN_ERROR, text}
+export const ACCOUNT_ERROR = 'ACCOUNT_ERROR'
+export const accountError = (text) => {
+	return {type: ACCOUNT_ERROR, text}
 }
 
 //PUSH
@@ -106,4 +105,9 @@ export const toEditor = (buttonID) => {
 export const TO_PUSHBOARD = 'TO_PUSHBOARD'
 export const toPushboard = () => {
 	return {type: TO_PUSHBOARD}
+}
+
+export const TO_PREV_SCREEN = 'TO_PREV_SCREEN'
+export const toPrevScreen = () => {
+	return {type: TO_PREV_SCREEN}
 }

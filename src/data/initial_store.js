@@ -42,7 +42,8 @@ const initialState = {
 	isLoggedIn: false,	
 	selectedButton: null,
 	splashText: 'Loading',
-	screen: "Login"
+	screen: "Login",
+	previousScreen: "Login"
 }
 
 export default initialState

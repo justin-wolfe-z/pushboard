@@ -4,12 +4,12 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "CLICK_BUTTON":
 			return state
-        case "LOGIN_PROGRESS":
+        case "ACCOUNT_PROGRESS":
             return Object.assign({}, state, {
                 isFetching: true,
                 screen: 'Splash'
         })                
-		case "LOGIN_SUCCESS":
+		case "ACCOUNT_SUCCESS":
 			return Object.assign({}, state, {
                 email: action.data.email,
                 key: action.data.key,
@@ -18,12 +18,13 @@ const reducer = (state = initialState, action) => {
                 loggedIn: true,
                 screen: 'Pushboard'
         })
-        case "LOGIN_ERROR":
+        case "ACCOUNT_ERROR":
             return Object.assign({}, state, {
                 isFetching: false,    
                 loggedIn: true,
                 splashText: 'Error logging in: ' + action.text,
-                screen: 'Splash'
+                screen: 'Splash',
+                previousScreen: 'Login'
         })
         case "TO_EDITOR":
         	return Object.assign({}, state, {
@@ -39,7 +40,11 @@ const reducer = (state = initialState, action) => {
         	return Object.assign({}, state, {
         		screen: "Pushboard",
         		isSelecting: !state.isSelecting
-        	})      			
+        	}) 
+        case "TO_PREV_SCREEN":
+            return Object.assign({}, state, {
+                screen: state.previousScreen,
+            })                   			
 		default:
 			return state
 	}

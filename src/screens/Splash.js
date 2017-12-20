@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {toPrevScreen} from '../actions/index'
 
 class Splash extends Component {
 	render() {
 		return (
-			<div className='splash'>{this.props.text}</div>
+			<div>
+				<div className='splash'>{this.props.text}</div>
+				<div className='actionButton' onClick={() => this.props.click()}>OK</div>
+			</div>
 		)
 	}
 }
@@ -15,4 +19,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Splash)
+const mapDispatchToProps = dispatch => {
+  return {
+    click: () => {
+    	dispatch(toPrevScreen())
+    }
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Splash)
