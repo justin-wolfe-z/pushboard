@@ -8,7 +8,7 @@ class AppButton extends Component {
     this.click = this.click.bind(this);
   }
   click() {
-    this.props.pClick({
+    this.props.click({
       name:this.props.name
     })
   }

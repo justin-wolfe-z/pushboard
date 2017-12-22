@@ -4,7 +4,7 @@ import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
 import AppButton from '../components/AppButton'
 import '../components/App.css';
-import {AppButtons} from '../data/shared_constants'
+import {toggleEditSelect} from '../actions/index'
 
 class Pushboard extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Pushboard extends Component {
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <AppButton name='edit' pClick={this.click}/>
+        <AppButton name='edit' click={this.click}/>
       </div>
     )
   }
@@ -35,6 +35,9 @@ const mapDispatchToProps = dispatch => {
     toDispatch: (btn) => {
       console.log("dispatch")
       console.log(btn)
+      if(btn.name==="edit"){
+        dispatch(toggleEditSelect())
+      }
     }
   }
 }
