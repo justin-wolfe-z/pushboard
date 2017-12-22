@@ -5,13 +5,12 @@ import {clickButton,loginThunk} from '../actions/index'
 class AppButton extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.click = this.click.bind(this);
   }
   click() {
-    console.log('child click')
-    this.props.parentClick('click')
-    console.log('after parent click')
+    this.props.pClick({
+      name:this.props.name
+    })
   }
 	render() {
 		return (
@@ -21,17 +20,5 @@ class AppButton extends Component {
 		)
 	}
 }
-     	 
-const mapStateToProps = state => {
-  return {
-  }
-}
 
-//there has to be a better way to do this!
-const mapDispatchToProps = dispatch => {
-  return {
-  }
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(AppButton)
+export default AppButton

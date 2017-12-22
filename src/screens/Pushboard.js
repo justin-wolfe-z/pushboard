@@ -9,18 +9,17 @@ import {AppButtons} from '../data/shared_constants'
 class Pushboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {email:'', key:'', error:''};
+    this.click = this.click.bind(this);
   }
-  parentClick(name){
-    console.log("parentclick")
-    console.log(name)
+  click(btn){
+    this.props.toDispatch(btn)
   }
   render() {
     return (
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <AppButton name='click' parentClick={this.parentClick}/>
+        <AppButton name='edit' pClick={this.click}/>
       </div>
     )
   }
@@ -31,4 +30,13 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Pushboard)
+const mapDispatchToProps = dispatch => {
+  return {
+    toDispatch: (btn) => {
+      console.log("dispatch")
+      console.log(btn)
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Pushboard)
