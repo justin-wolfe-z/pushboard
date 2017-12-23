@@ -34,8 +34,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     toDispatch: (btn) => {
-      console.log("dispatch")
-      console.log(btn)
       if(btn.name==="edit"){
         dispatch(toggleEditSelect())
       }

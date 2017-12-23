@@ -10,14 +10,14 @@ class Login extends Component {
     super(props);
     this.state = {email:'', key:'', error:''};
     this.handleChange = this.handleChange.bind(this);
+    this.toDispatch = this.toDispatch.bind(this);
   }
   handleChange(event) {
-  	this.setState({[event.target.name]: event.target.value})  
+  	this.setState({[event.target.name]: event.target.value, error:''})
   }
-  validate(button){
-    console.log(validateEmail(this.state.email))
+  toDispatch(btn){
     if(validateEmail(this.state.email.trim())){
-      this.props[button](this.state)
+      this.props.toDispatch(this.state, btn)      
     } else {
       this.setState({error:'invalid email'})
     }
@@ -31,8 +31,7 @@ class Login extends Component {
 				<input type='text' name='key' placeholder='api key' value={this.state.key} onChange={this.handleChange}/>
 				<br/>
         <div className='Alert' name='Alert'>{this.state.error}</div>
-				<div className='ActionButton' name='Login' onClick={() => this.validate('login')}>Login</div>
-				<div className='ActionButton' name='Signup' onClick={() => this.validate('signup')}>Signup</div>
+        <ButtonBar buttons={["login","signup"]} click={this.toDispatch}/>
 			</div>
 		)
 	}
@@ -45,11 +44,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (state) => {
-  	  dispatch(accountThunk('login', state.email.trim() + ':' + state.key.trim()))
-    },
-    signup: (state) => {
-    	dispatch(accountThunk('signup', state.email.trim()))
+    toDispatch: (state, btn) => {
+      if(btn.name==="login"){
+        dispatch(accountThunk('login', state.email.trim() + ':' + state.key.trim()))
+      } else if (btn.name==="signup"){
+        dispatch(accountThunk('signup', state.email.trim()))
+      }
     }
   }
 }
