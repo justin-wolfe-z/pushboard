@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
-import AppButton from '../components/AppButton'
 import ButtonBar from '../components/ButtonBar'
 import '../components/App.css';
 import {toggleEditSelect} from '../actions/index'

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {toPrevScreen} from '../actions/index'
+import AppButton from '../components/AppButton'
 
 class Splash extends Component {
 	render() {
 		return (
 			<div>
 				<div className='splash'>{this.props.text}</div>
-				<div className='actionButton' onClick={() => this.props.click()}>OK</div>
+				<AppButton name='OK' click={this.props.click}/>
 			</div>
 		)
 	}
