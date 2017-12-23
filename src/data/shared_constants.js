@@ -1,5 +1,3 @@
-import { clickButton, loginThunk } from '../actions/index'
-
 export const URLs = {
 	base: 'http://192.168.0.114:4000',
 	route: {
@@ -27,29 +25,4 @@ export const fetchPrep = (route, auth, body) => {
 	}
 }
 
-export const AppButtons = {
-	Pushboard: [
-		{
-			text:'Edit',
-			screen:'Pushboard',
-		},
-		{
-			text:'Logs',
-			screen:'Pushboard',
-		}
-	],
-	Login: [
-		{
-			text:'Sign Up',
-			screen:'Login',
-		},
-		{
-			text:'Log In',
-			screen:'Login',
-			action:'loginThunk'
-		}	
-	],
-	Editor: [],
-	Splash: [],
-}
 
