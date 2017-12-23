@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
 import AppButton from '../components/AppButton'
+import FieldBox from '../components/FieldBox'
 import {clickButton, accountThunk} from '../actions/index'
 import {validateEmail} from '../data/utils'
 
@@ -19,19 +20,16 @@ class Login extends Component {
     if(validateEmail(this.state.email.trim())){
       this.props.toDispatch(this.state, btn)      
     } else {
-      this.setState({error:'invalid email'})
+      this.setState({error:'please enter a valid email'})
     }
   }
 	render() {
 		return (
 			<div className='login'>
 				<div>Tap</div>
-				<input type='text' name='email' placeholder='email' value={this.state.email} onChange={this.handleChange}/>
-				<br/>
-				<input type='text' name='key' placeholder='api key' value={this.state.key} onChange={this.handleChange}/>
-				<br/>
+        <FieldBox items={["email","key"]} change={this.handleChange}/>
         <div className='Alert' name='Alert'>{this.state.error}</div>
-        <ButtonBar buttons={["login","signup"]} click={this.toDispatch}/>
+        <ButtonBar items={["login","signup"]} click={this.toDispatch}/>
 			</div>
 		)
 	}

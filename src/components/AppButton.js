@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import {clickButton,loginThunk} from '../actions/index'
 
 class AppButton extends Component {
   constructor(props) {

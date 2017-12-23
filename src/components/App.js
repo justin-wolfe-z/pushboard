@@ -4,7 +4,6 @@ import Login from '../screens/Login'
 import Editor from '../screens/Editor'
 import Pushboard from '../screens/Pushboard'
 import Splash from '../screens/Splash'
-//import './App.css';
 
 class App extends Component {
   render() {

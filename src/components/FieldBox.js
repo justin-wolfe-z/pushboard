@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import AppButton from './AppButton'
+import Field from './Field'
 
-class ButtonBar extends Component {
+class FieldBox extends Component {
 	render() {
 		return (
 			<div>
 					{
 						this.props.items.map((item) => {
-							return <AppButton
+							return <Field
 								key={item} 
 								name={item}
-								click={this.props.click}
+								change={this.props.change}
 							/>
 						})
 					}
@@ -19,4 +19,4 @@ class ButtonBar extends Component {
 	}
 }
 
-export default ButtonBar
+export default FieldBox
