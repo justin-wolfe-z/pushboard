@@ -9,10 +9,9 @@ class ButtonBar extends Component {
 					{
 						this.props.buttons.map((button) => {
 							return <AppButton
-								key={button.text} 
-								name={button.text}
-								screen={button.screen}
-								action={button.action}
+								key={button} 
+								name={button}
+								click={this.props.click}
 							/>
 						})
 					}

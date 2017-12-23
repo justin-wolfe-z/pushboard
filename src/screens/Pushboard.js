@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
 import AppButton from '../components/AppButton'
+import ButtonBar from '../components/ButtonBar'
 import '../components/App.css';
 import {toggleEditSelect} from '../actions/index'
 
@@ -19,7 +20,7 @@ class Pushboard extends Component {
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <AppButton name='edit' click={this.click}/>
+        <ButtonBar buttons={["edit","log"]} click={this.click}/>
       </div>
     )
   }
