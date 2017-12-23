@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
-import AppButton from '../components/AppButton'
 import FieldBox from '../components/FieldBox'
-import {clickButton, accountThunk} from '../actions/index'
+import {accountThunk} from '../actions/index'
 import {validateEmail} from '../data/utils'
 
 class Login extends Component {
