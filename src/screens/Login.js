@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
+import Message from '../components/Message'
 import FieldBox from '../components/FieldBox'
 import {accountThunk} from '../actions/index'
 import {validateEmail} from '../data/utils'
@@ -27,7 +28,7 @@ class Login extends Component {
 			<div className='login'>
 				<div>Tap</div>
         <FieldBox items={["email","key"]} change={this.handleChange}/>
-        <div className='Alert' name='Alert'>{this.state.error}</div>
+        <Message text={this.state.error}/>
         <ButtonBar items={["login","signup"]} click={this.toDispatch}/>
 			</div>
 		)
