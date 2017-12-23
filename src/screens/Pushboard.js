@@ -8,19 +8,12 @@ import '../components/App.css';
 import {toggleEditSelect} from '../actions/index'
 
 class Pushboard extends Component {
-  constructor(props) {
-    super(props);
-    this.click = this.click.bind(this);
-  }
-  click(btn){
-    this.props.toDispatch(btn)
-  }
   render() {
     return (
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <ButtonBar items={["edit","log"]} click={this.click}/>
+        <ButtonBar items={["edit","log"]} click={this.props.toDispatch}/>
       </div>
     )
   }
