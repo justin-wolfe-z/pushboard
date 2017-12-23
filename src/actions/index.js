@@ -15,10 +15,11 @@ export const accountStart = (text) => {
 //LOGIN
 //thunk for loading user data (with fake API right now)
 export const ACCOUNT_THUNK = 'ACCOUNT_THUNK'
-export const accountThunk = (type, auth) => {
+export const accountThunk = (type, email, key) => {
 	return (dispatch) => {
 		dispatch(accountStart())
 		dispatch(accountProgress())
+		let auth = key ? email + ":" + key : email
 		let request = fetchPrep(type, auth)
 		fetch(request.url, request.settings)
     	.then(response => response.json())

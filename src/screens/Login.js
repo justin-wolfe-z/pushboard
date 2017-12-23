@@ -42,11 +42,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     toDispatch: (state, btn) => {
-      if(btn.name==="login"){
-        dispatch(accountThunk('login', state.email.trim() + ':' + state.key.trim()))
-      } else if (btn.name==="signup"){
-        dispatch(accountThunk('signup', state.email.trim()))
-      }
+      dispatch(accountThunk(btn.name, state.email.trim(), state.key.trim()))
     }
   }
 }
