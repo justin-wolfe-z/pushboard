@@ -21,6 +21,7 @@ export const fetchPrep = (route, auth, body) => {
 			  'Authorization': 'Basic ' + btoa(auth),
 		  	'Content-Type': 'application/json'
 			},
+			body: body || {}
 		}
 	}
 }

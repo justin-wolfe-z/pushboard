@@ -26,7 +26,7 @@ class Login extends Component {
 	render() {
 		return (
 			<div className='login'>
-				<div>Tap</div>
+				<div>tap</div>
         <FieldBox message={this.state.error} items={["email","key"]} change={this.handleChange}/>
         <Message text={this.state.error}/>
         <ButtonBar items={["login","signup"]} click={this.toDispatch}/>

@@ -24,6 +24,9 @@ const reducer = (state = initialState, action) => {
                 screen: 'Splash',
                 previousScreen: 'Login'
         })
+        case "SAVE_SUCCESS":
+            return Object.assign({}, state, {
+        })        
         case "TO_EDITOR":
         	return Object.assign({}, state, {
         		screen: "Editor",

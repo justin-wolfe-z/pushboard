@@ -92,7 +92,11 @@ export const saveThunk = (button) => {
 		let request = fetchPrep("save", auth, JSON.stringify(button))
 		fetch(request.url, request.settings)
     	.then(response => response.json())
-	  	.then(data => dispatch(saveSuccess(data)))
+	  	.then(data => {
+	  		console.log(data);
+	  		dispatch(saveSuccess(data))
+	  		dispatch(toPushboard())
+	  	})
   		.catch(error => dispatch(saveError(error)))			
 	}
 }
@@ -108,8 +112,8 @@ export const saveProgress = (text) => {
 }
 
 export const SAVE_SUCCESS = 'SAVE_SUCCESS'
-export const saveSuccess= (text) => {
-	return {type: SAVE_SUCCESS, text}
+export const saveSuccess= (button) => {
+	return {type: SAVE_SUCCESS, button}
 }
 
 export const SAVE_ERROR = 'SAVE_ERROR'
