@@ -12,7 +12,7 @@ class Field extends Component {
   }
   change(event) {
     this.setState({val:event.target.value})
-    this.props.change(event,)
+    this.props.change(event)
   }
 	render() {
 		return (

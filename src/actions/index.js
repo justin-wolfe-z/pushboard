@@ -50,7 +50,7 @@ export const accountError = (text) => {
 //thunk for using button pushes to trigger Zaps
 export const PUSH_THUNK = 'PUSH_THUNK'
 export const pushThunk = (button) => {
-	return (dispatch,getState) => {
+	return (dispatch, getState) => {
 		dispatch(pushStart())
 		dispatch(pushProgress())
 		let auth = getState().email + ":" + getState().key
@@ -80,6 +80,41 @@ export const pushSuccess= (data) => {
 export const PUSH_ERROR = 'PUSH_ERROR'
 export const pushError = (text) => {
 	return {type: PUSH_ERROR, text}
+}
+
+export const SAVE_THUNK = 'SAVE_THUNK'
+export const saveThunk = (button) => {
+	return (dispatch, getState) => {
+		console.log(button)
+		dispatch(saveStart())
+		dispatch(saveProgress())
+		let auth = getState().email + ":" + getState().key
+		let request = fetchPrep("save", auth, JSON.stringify(button))
+		fetch(request.url, request.settings)
+    	.then(response => response.json())
+	  	.then(data => dispatch(saveSuccess(data)))
+  		.catch(error => dispatch(saveError(error)))			
+	}
+}
+
+export const SAVE_START = 'SAVE_START'
+export const saveStart = (text) => {
+	return {type: SAVE_START, text}
+}
+
+export const SAVE_PROGRESS = 'SAVE_PROGRESS'
+export const saveProgress = (text) => {
+	return {type: SAVE_PROGRESS, text}
+}
+
+export const SAVE_SUCCESS = 'SAVE_SUCCESS'
+export const saveSuccess= (text) => {
+	return {type: SAVE_SUCCESS, text}
+}
+
+export const SAVE_ERROR = 'SAVE_ERROR'
+export const saveError = (text) => {
+	return {type: SAVE_ERROR, text}
 }
 
 //MOTION

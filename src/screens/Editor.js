@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {toPushboard} from '../actions/index'
+import {toPushboard, saveThunk} from '../actions/index'
 import ButtonBar from '../components/ButtonBar'
 import FieldBox from '../components/FieldBox'
 
@@ -8,7 +8,7 @@ class Editor extends Component {
   constructor(props) {
     super(props);
     let button = this.props.button;
-    this.state = {icon:button.icon, label:button.label, text:button.text};
+    this.state = this.props.button;
     this.handleChange = this.handleChange.bind(this);
     this.toDispatch = this.toDispatch.bind(this);
   }
@@ -38,8 +38,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     toDispatch: (state, btn) => {
-      if(btn.name==='exit'){
-      	dispatch(toPushboard())
+      switch(btn.name){
+      	case "exit":
+      		dispatch(toPushboard())
+      		break;
+    		case "save":
+    			dispatch(saveThunk(state))
+    			break;
+  			default:
+  				break;
       }
     }
   }
