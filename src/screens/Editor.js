@@ -14,7 +14,6 @@ class Editor extends Component {
   }
   handleChange(event) {
   	this.setState({[event.target.name]: event.target.value, error:''})
-  	console.log(this.state)
   }
   toDispatch(btn){
     this.props.toDispatch(this.state, btn)      
@@ -23,7 +22,7 @@ class Editor extends Component {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
-					<FieldBox labels="yes" items={["label","text"]} existing={this.state} change={this.handleChange}/>
+					<FieldBox labels="true" items={["label","text"]} existing={this.state} change={this.handleChange}/>
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)

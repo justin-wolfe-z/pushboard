@@ -16,7 +16,10 @@ class Field extends Component {
   }
 	render() {
 		return (
-			<input name={this.props.name} onChange={this.change} placeholder={this.props.name} value={this.state.val}/>
+      <div>
+        {this.props.labels ? <div className='FieldLabel'>{this.props.name}</div> : ''}
+        <input name={this.props.name} onChange={this.change} placeholder={this.props.name} value={this.state.val}/>
+      </div>
 		)
 	}
 }

@@ -32,6 +32,11 @@
   cursor: pointer;
 }
 
+.FieldLabel {
+  display: inline-block;
+  padding-right: 1%;
+}
+
 .boardNotSelecting {
 	background-color: white;
 }
