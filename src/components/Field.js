@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 class Field extends Component {
   constructor(props) {
     super(props);
-    this.state = {val:''};
+    if(this.props.existing){
+      this.state = {val:this.props.existing};
+    } else {
+      this.state = {val:''};
+    }
     this.change = this.change.bind(this);
   }
   change(event) {

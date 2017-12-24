@@ -11,7 +11,9 @@ class FieldBox extends Component {
 							return <Field
 								key={item} 
 								name={item}
+								label={item}
 								change={this.props.change}
+								existing={this.props.existing ? this.props.existing[item] : ''}
 							/>
 						})
 					}

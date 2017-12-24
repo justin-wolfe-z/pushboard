@@ -2,19 +2,29 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {toPushboard} from '../actions/index'
 import ButtonBar from '../components/ButtonBar'
+import FieldBox from '../components/FieldBox'
 
 class Editor extends Component {
+  constructor(props) {
+    super(props);
+    let button = this.props.button;
+    this.state = {icon:button.icon, label:button.label, text:button.text};
+    this.handleChange = this.handleChange.bind(this);
+    this.toDispatch = this.toDispatch.bind(this);
+  }
+  handleChange(event) {
+  	this.setState({[event.target.name]: event.target.value, error:''})
+  	console.log(this.state)
+  }
+  toDispatch(btn){
+    this.props.toDispatch(this.state, btn)      
+  }
 	render() {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
-					<div className='params'>
-						<div>icon: {this.props.button.icon}</div>
-						<div>name: {this.props.button.name}</div>
-						<div>type: {this.props.button.type}</div>
-						<div>text: {this.props.button.text}</div>
-					</div>
-					<ButtonBar items={["save","signup"]} click={this.props.toDispatch}/>
+					<FieldBox labels="yes" items={["label","text"]} existing={this.state} change={this.handleChange}/>
+					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)
 	}
@@ -29,7 +39,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     toDispatch: (state, btn) => {
-      console.log("dispatching from Editor")
+      if(btn.name==='exit'){
+      	dispatch(toPushboard())
+      }
     }
   }
 }

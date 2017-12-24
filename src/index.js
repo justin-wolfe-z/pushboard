@@ -12,11 +12,11 @@ import reducer from './reducers'
 const store = createStore(reducer, applyMiddleware(thunk,logger))
 
 render(
-  <Provider store={store}>
-  <AppContainer>
-    <App />
-  </AppContainer>
-  </Provider>,
+	<AppContainer>
+  	<Provider store={store}>
+    	<App />
+    </Provider>
+	</AppContainer>,
   document.getElementById('root')
 )
 
@@ -24,11 +24,11 @@ if (module.hot) {
     module.hot.accept('./components/App', () => {
         const NextApp = require('./components/App').default; // eslint-disable-line global-require
         ReactDOM.render(
-        	<Provider store={store}>
             <AppContainer>
-                <NextApp />
-            </AppContainer>
-          </Provider>,
+              	<Provider store={store}>
+                	<NextApp />
+                </Provider>
+            </AppContainer>,
             document.getElementById('root')
         );
     });
