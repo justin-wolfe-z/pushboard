@@ -27,7 +27,7 @@ class Login extends Component {
 		return (
 			<div className='login'>
 				<div>Tap</div>
-        <FieldBox items={["email","key"]} change={this.handleChange}/>
+        <FieldBox message={this.state.error} items={["email","key"]} change={this.handleChange}/>
         <Message text={this.state.error}/>
         <ButtonBar items={["login","signup"]} click={this.toDispatch}/>
 			</div>

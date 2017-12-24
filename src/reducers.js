@@ -2,8 +2,6 @@ import initialState from './data/initial_store'
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
-		case "CLICK_BUTTON":
-			return state
         case "ACCOUNT_PROGRESS":
             return Object.assign({}, state, {
                 isFetching: true,

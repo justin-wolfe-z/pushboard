@@ -1,12 +1,5 @@
 import {fetchPrep} from '../data/shared_constants'
 
-export const CLICK_BUTTON = 'CLICK_BUTTON'
-export const clickButton = (button) => {
-	return (dispatch) => {
-		console.log(button)
-	}
-}
-
 export const ACCOUNT_START = 'ACCOUNT_START'
 export const accountStart = (text) => {
 	return {type: ACCOUNT_START, text}

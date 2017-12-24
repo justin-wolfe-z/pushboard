@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Field from './Field'
+import Message from './Message'
 
 class FieldBox extends Component {
 	render() {

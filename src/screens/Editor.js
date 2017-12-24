@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {toPushboard} from '../actions/index'
+import ButtonBar from '../components/ButtonBar'
 
 class Editor extends Component {
 	render() {
@@ -13,12 +14,7 @@ class Editor extends Component {
 						<div>type: {this.props.button.type}</div>
 						<div>text: {this.props.button.text}</div>
 					</div>
-					<div 
-						className='actionButton' 
-						onClick={() => this.props.click()}
-					>
-						Back to Board
-					</div>
+					<ButtonBar items={["save","signup"]} click={this.props.toDispatch}/>
 			</div>
 		)
 	}
@@ -32,7 +28,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: () => dispatch(toPushboard())
+    toDispatch: (state, btn) => {
+      console.log("dispatching from Editor")
+    }
   }
 }
 
