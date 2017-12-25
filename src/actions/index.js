@@ -85,7 +85,6 @@ export const pushError = (text) => {
 export const SAVE_THUNK = 'SAVE_THUNK'
 export const saveThunk = (button) => {
 	return (dispatch, getState) => {
-		console.log(button)
 		dispatch(saveStart())
 		dispatch(saveProgress())
 		let auth = getState().email + ":" + getState().key
@@ -93,7 +92,6 @@ export const saveThunk = (button) => {
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
-	  		console.log(data);
 	  		dispatch(saveSuccess(data))
 	  		dispatch(toPushboard())
 	  	})

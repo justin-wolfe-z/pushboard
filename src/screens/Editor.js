@@ -22,7 +22,7 @@ class Editor extends Component {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
-					<FieldBox labels="true" items={["label","text"]} existing={this.state} change={this.handleChange}/>
+					<FieldBox labels="true" items={["icon","label","text"]} existing={this.state} change={this.handleChange}/>
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)

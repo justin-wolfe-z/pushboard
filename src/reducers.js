@@ -26,6 +26,7 @@ const reducer = (state = initialState, action) => {
         })
         case "SAVE_SUCCESS":
             return Object.assign({}, state, {
+                buttons:action.button.body
         })        
         case "TO_EDITOR":
         	return Object.assign({}, state, {
