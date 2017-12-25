@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {pushThunk, toEditor} from '../actions/index'
+import emoji from 'node-emoji'
 
 class PushButton extends Component {
 	render() {
@@ -9,7 +10,7 @@ class PushButton extends Component {
 				className={['PushButton',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
 				onClick={() => this.props.click(this.props, this.props.isSelecting)}
 			>
-				{this.props.icon}
+				{emoji.get(this.props.icon)}
 			</div>
 		)
 	}

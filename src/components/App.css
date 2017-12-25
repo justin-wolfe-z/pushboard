@@ -17,6 +17,7 @@
   margin: 1%;
   cursor: pointer;
   user-select: none;
+  font-size: 2em;
 }
 
 .StatusBar {
