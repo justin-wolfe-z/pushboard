@@ -1,5 +1,5 @@
 export const URLs = {
-	base: 'http://192.168.0.114:4000',
+	base: 'http://45.55.55.65:4000',
 	route: {
 		login: ['GET','/user'],
 		signup: ['POST','/user'],
@@ -21,9 +21,9 @@ export const fetchPrep = (route, auth, body) => {
 			  'Authorization': 'Basic ' + btoa(auth),
 		  	'Content-Type': 'application/json'
 			},
-			body: body || {}
+			body: body || "{}"
 		}
 	}
 }
 
-
+export const colors = []

@@ -18,7 +18,15 @@ class Login extends Component {
   }
   toDispatch(btn){
     if(validateEmail(this.state.email.trim())){
-      this.props.toDispatch(this.state, btn)      
+      if(btn.name==="signup"){
+        this.props.toDispatch(this.state, btn)  
+      } else {
+        if(this.state.key.trim() === ''){
+          this.setState({'error':'please enter an api key to log in'})
+        } else {
+          this.props.toDispatch(this.state, btn)  
+        }
+      }    
     } else {
       this.setState({error:'please enter a valid email'})
     }

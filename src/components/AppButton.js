@@ -12,7 +12,7 @@ class AppButton extends Component {
   }
 	render() {
 		return (
-			<div className='AppButton' onClick={this.click}>
+			<div className='AppButton noselect' onClick={this.click}>
 				{this.props.name}
 			</div>
 		)
