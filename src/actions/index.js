@@ -1,4 +1,4 @@
-import {fetchPrep} from '../data/shared_constants'
+import {fetchPrep} from '../data/utils'
 
 export const ACCOUNT_START = 'ACCOUNT_START'
 export const accountStart = (text) => {
@@ -7,19 +7,15 @@ export const accountStart = (text) => {
 
 //STORAGE
 //thunks for saving creds to local storage and retrieving them at application start
-
 export const STORAGE_THUNK = 'STORAGE_THUNK'
 export const storageThunk = (type, email, key) => {
 	return (dispatch) => {
 		switch (type){
 			case "save":
 				dispatch(storageSaveProgress())
-				let toStore = {
-					email: email,
-					key: key
-				}
+				let toStore = {email: email, key: key}
 				localStorage.setItem('creds', JSON.stringify(toStore))
-				dispatch(storageSaveSuccess())
+				localStorage.getItem('creds') ? dispatch(storageSaveSuccess()) : dispatch(storageSaveError())
 				break;
 			case "load":
 				dispatch(storageLoadProgress())
@@ -32,6 +28,9 @@ export const storageThunk = (type, email, key) => {
 					dispatch(storageLoadError("didn't find creds in local storage"))
 				}
 				break;
+			case "remove":
+				localStorage.removeItem('creds')
+				break;	
 			default:
 				break;		
 		}
@@ -68,8 +67,22 @@ export const storageLoadError = (text) => {
 	return {type: STORAGE_LOAD_ERROR, text}
 }
 
+export const STORAGE_REMOVE_PROGRESS = 'STORAGE_REMOVE_PROGRESS'
+export const storageRemoveProgress = (text) => {
+	return {type: STORAGE_REMOVE_PROGRESS, text}
+}
 
-//LOGIN
+export const STORAGE_REMOVE_SUCCESS = 'STORAGE_REMOVE_SUCCESS'
+export const storageRemoveSuccess= (text) => {
+	return {type: STORAGE_REMOVE_SUCCESS, text}
+}
+
+export const STORAGE_REMOVE_ERROR = 'STORAGE_REMOVE_ERROR'
+export const storageRemoveError = (text) => {
+	return {type: STORAGE_REMOVE_ERROR, text}
+}
+
+//LOGIN/SIGNUP
 //thunk for loading user data
 export const ACCOUNT_THUNK = 'ACCOUNT_THUNK'
 export const accountThunk = (type, email, key) => {
@@ -208,4 +221,9 @@ export const toPushboard = () => {
 export const TO_PREV_SCREEN = 'TO_PREV_SCREEN'
 export const toPrevScreen = () => {
 	return {type: TO_PREV_SCREEN}
+}
+
+export const CLEAR_SPLASH = 'CLEAR_SPLASH'
+export const clearSplash = () => {
+	return {type: CLEAR_SPLASH}
 }

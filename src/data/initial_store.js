@@ -1,41 +1,8 @@
 const initialState = {
-	email:"notanemail@zapier.com",
-	key:"jlfsdkljdfsljjklfds",
-	connectionStatus:"connected",
-	buttons: [
-		{
-			id:0,
-			icon:"baby",
-			type:"static",
-			connected:"false",
-			text:"",
-			hookURL:"hookURL"
-		},
-		{
-			id:1,
-			icon:"hat",
-			type:"static",
-			connected:"false",
-			text:"",
-			hookURL:"hookURLLL",
-		},
-		{
-			id:2,
-			icon:"puppy",
-			type:"static",
-			connected:"false",
-			text:"",
-			hookURL:"hookURLLL",
-		},
-		{
-			id:3,
-			icon:"cookie",
-			type:"static",
-			connected:"false",
-			text:"",
-			hookURL:"hookURLLL",
-		}
-	],
+	email:null,
+	key:null,
+	connectionStatus:"disconnected",
+	buttons: [],
 	log: [],
 	isFetching: false,
 	isSelecting: false,

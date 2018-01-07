@@ -14,7 +14,8 @@ const reducer = (state = initialState, action) => {
                 buttons: action.data.buttons,
                 isFetching: false,    
                 loggedIn: true,
-                screen: 'Pushboard'
+                screen: 'Pushboard',
+                connectionStatus: 'connected'
         })
         case "ACCOUNT_ERROR":
             return Object.assign({}, state, {
