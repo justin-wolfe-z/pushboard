@@ -6,7 +6,53 @@ export const accountStart = (text) => {
 }
 
 //STORAGE
-//thunks for saving 
+//thunks for saving creds to local storage and retrieving them at application start
+
+export const STORAGE_THUNK = 'STORAGE_THUNK'
+export const storageThunk = (type) => {
+	return (dispatch) => {
+		switch (type){
+			case "save":
+				break;
+			case "load":
+				console.log("load");
+				break;
+			default:
+				break;		
+		}
+	}
+}
+
+export const STORAGE_SAVE_PROGRESS = 'STORAGE_SAVE_PROGRESS'
+export const storageSaveProgress = (text) => {
+	return {type: STORAGE_SAVE_PROGRESS, text}
+}
+
+export const STORAGE_SAVE_SUCCESS = 'STORAGE_SAVE_SUCCESS'
+export const storageSaveSuccess= (text) => {
+	return {type: STORAGE_SAVE_SUCCESS, text}
+}
+
+export const STORAGE_SAVE_ERROR = 'STORAGE_SAVE_ERROR'
+export const storageSaveError = (text) => {
+	return {type: STORAGE_SAVE_ERROR, text}
+}
+
+export const STORAGE_LOAD_PROGRESS = 'STORAGE_LOAD_PROGRESS'
+export const storageLoadProgress = (text) => {
+	return {type: STORAGE_LOAD_PROGRESS, text}
+}
+
+export const STORAGE_LOAD_SUCCESS = 'STORAGE_LOAD_SUCCESS'
+export const storageLoadSuccess= (text) => {
+	return {type: STORAGE_LOAD_SUCCESS, text}
+}
+
+export const STORAGE_LOAD_ERROR = 'STORAGE_LOAD_ERROR'
+export const storageLoadError = (text) => {
+	return {type: STORAGE_LOAD_ERROR, text}
+}
+
 
 //LOGIN
 //thunk for loading user data
