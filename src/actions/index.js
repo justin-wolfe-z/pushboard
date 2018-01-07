@@ -5,8 +5,11 @@ export const accountStart = (text) => {
 	return {type: ACCOUNT_START, text}
 }
 
+//STORAGE
+//thunks for saving 
+
 //LOGIN
-//thunk for loading user data (with fake API right now)
+//thunk for loading user data
 export const ACCOUNT_THUNK = 'ACCOUNT_THUNK'
 export const accountThunk = (type, email, key) => {
 	return (dispatch) => {
@@ -54,7 +57,7 @@ export const pushThunk = (button) => {
 		dispatch(pushStart())
 		dispatch(pushProgress())
 		let auth = getState().email + ":" + getState().key
-		let request = fetchPrep("push", auth, JSON.stringify(button))
+		let request = fetchPrep("push", auth, button)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => dispatch(pushSuccess(data)))
@@ -88,7 +91,7 @@ export const saveThunk = (button) => {
 		dispatch(saveStart())
 		dispatch(saveProgress())
 		let auth = getState().email + ":" + getState().key
-		let request = fetchPrep("save", auth, JSON.stringify(button))
+		let request = fetchPrep("save", auth, button)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
