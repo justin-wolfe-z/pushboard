@@ -7,7 +7,6 @@ import FieldBox from '../components/FieldBox'
 class Editor extends Component {
   constructor(props) {
     super(props);
-    let button = this.props.button;
     this.state = this.props.button;
     this.handleChange = this.handleChange.bind(this);
     this.toDispatch = this.toDispatch.bind(this);

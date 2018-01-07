@@ -9,13 +9,28 @@ export const accountStart = (text) => {
 //thunks for saving creds to local storage and retrieving them at application start
 
 export const STORAGE_THUNK = 'STORAGE_THUNK'
-export const storageThunk = (type) => {
+export const storageThunk = (type, email, key) => {
 	return (dispatch) => {
 		switch (type){
 			case "save":
+				dispatch(storageSaveProgress())
+				let toStore = {
+					email: email,
+					key: key
+				}
+				localStorage.setItem('creds', JSON.stringify(toStore))
+				dispatch(storageSaveSuccess())
 				break;
 			case "load":
-				console.log("load");
+				dispatch(storageLoadProgress())
+				let creds = localStorage.getItem('creds')
+				if(creds){
+					let parsed = JSON.parse(creds)
+					dispatch(storageLoadSuccess())
+					dispatch(accountThunk('login', parsed.email, parsed.key))
+				} else {
+					dispatch(storageLoadError("didn't find creds in local storage"))
+				}
 				break;
 			default:
 				break;		
@@ -69,6 +84,9 @@ export const accountThunk = (type, email, key) => {
 	  		if(data.status==="new"){
 	  			dispatch(accountSuccess(data.body))
 	  		} else if(data.status==="existing"){
+	  			if(type==="login"){
+	  				dispatch(storageThunk('save', email, key))
+	  			}
 					dispatch(accountSuccess(data.body))
 	  		} else if (data.status==="error"){
 	  			dispatch(accountError(data.message))

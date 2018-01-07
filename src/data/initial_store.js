@@ -1,5 +1,5 @@
 const initialState = {
-	email:"justin.wolfe@gmail.com",
+	email:"notanemail@zapier.com",
 	key:"jlfsdkljdfsljjklfds",
 	connectionStatus:"connected",
 	buttons: [

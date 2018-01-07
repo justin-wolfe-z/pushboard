@@ -25,7 +25,7 @@ store.dispatch(storageThunk('load'))
 
 if (module.hot) {
     module.hot.accept('./components/App', () => {
-        const NextApp = require('./components/App').default; // eslint-disable-line global-require
+        const NextApp = require('./components/App').default; 
         ReactDOM.render(
             <AppContainer>
               	<Provider store={store}>
