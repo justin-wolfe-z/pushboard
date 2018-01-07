@@ -12,6 +12,13 @@ input {
   font-size: 3em;
 }
 
+@media all and (max-width : 760px) {
+/* Styles */
+  #root {
+    font-size: 1em;
+  }
+}
+
 #root:before {
   content: '';
   display: inline-block;
