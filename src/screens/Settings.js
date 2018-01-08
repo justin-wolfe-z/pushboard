@@ -8,8 +8,10 @@ class Settings extends Component {
 	render() {
 		return (
 			<div>
-				<div>hello</div>
-				<Message text={this.props.text}/>
+				<Message text={this.props.account}/>
+				<Message text={this.props.status}/>
+				<AppButton name='reset API key' click={this.props.click}/>
+				<AppButton name='log out' click={this.props.click}/>
 				<AppButton name='exit' click={this.props.click}/>
 			</div>
 		)
