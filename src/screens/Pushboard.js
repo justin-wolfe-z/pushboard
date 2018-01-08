@@ -4,7 +4,7 @@ import StatusBar from '../components/StatusBar'
 import Board from '../components/Board'
 import ButtonBar from '../components/ButtonBar'
 import '../components/App.css';
-import {toggleEditSelect} from '../actions/index'
+import {toggleEditSelect,toSettings} from '../actions/index'
 
 class Pushboard extends Component {
   render() {
@@ -12,7 +12,7 @@ class Pushboard extends Component {
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <ButtonBar items={["edit","log"]} click={this.props.toDispatch}/>
+        <ButtonBar items={["edit","log","⚙"]} click={this.props.toDispatch}/>
       </div>
     )
   }
@@ -28,6 +28,8 @@ const mapDispatchToProps = dispatch => {
     toDispatch: (btn) => {
       if(btn.name==="edit"){
         dispatch(toggleEditSelect())
+      } else if (btn.name==="⚙"){
+        dispatch(toSettings())
       }
     }
   }

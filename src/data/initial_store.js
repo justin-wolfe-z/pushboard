@@ -1,6 +1,7 @@
 const initialState = {
 	email:null,
 	key:null,
+	query:null,
 	connectionStatus:"disconnected",
 	buttons: [],
 	log: [],

@@ -5,6 +5,9 @@ export const accountStart = (text) => {
 	return {type: ACCOUNT_START, text}
 }
 
+//QUERY
+//check query string for account params
+
 //STORAGE
 //thunks for saving creds to local storage and retrieving them at application start
 export const STORAGE_THUNK = 'STORAGE_THUNK'
@@ -216,6 +219,11 @@ export const toEditor = (buttonID) => {
 export const TO_PUSHBOARD = 'TO_PUSHBOARD'
 export const toPushboard = () => {
 	return {type: TO_PUSHBOARD}
+}
+
+export const TO_SETTINGS = 'TO_SETTINGS'
+export const toSettings = () => {
+	return {type: TO_SETTINGS}
 }
 
 export const TO_PREV_SCREEN = 'TO_PREV_SCREEN'

@@ -33,7 +33,12 @@ const reducer = (state = initialState, action) => {
         	return Object.assign({}, state, {
         		screen: "Editor",
         		selectedButton: state.buttons[action.buttonID]
-        	})  
+        	})
+        case "TO_SETTINGS":
+            return Object.assign({}, state, {
+                screen: "Settings",
+                previousScreen: "Pushboard"
+            })                
       	case "TO_PUSHBOARD":
         	return Object.assign({}, state, {
         		screen: "Pushboard",

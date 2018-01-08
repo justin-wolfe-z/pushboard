@@ -1,4 +1,4 @@
-body, html { width: 100%; height: 100%; font-family: 'Open Sans', sans-serif;}
+body, html { width: 100%; height: 100%; font-family: 'Open Sans', sans-serif; overflow: hidden;}
 
 input {
   font-size: 1em;
@@ -16,6 +16,12 @@ input {
 /* Styles */
   #root {
     font-size: 1em;
+  }
+  .Pushboard {
+    font-size: 2em;
+  }
+  .PushButton {
+    font-size: 2em!important;
   }
 }
 
@@ -43,8 +49,8 @@ input {
 
 .AppContainer {
 	text-align: center;
+  width: 90%;
   display:inline-block;
-  width: 50%;
 }
 
 .PushButton {

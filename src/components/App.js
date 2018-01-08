@@ -4,21 +4,22 @@ import Login from '../screens/Login'
 import Editor from '../screens/Editor'
 import Pushboard from '../screens/Pushboard'
 import Splash from '../screens/Splash'
+import Settings from '../screens/Settings'
+
+const screens = {
+  Login:Login,
+  Pushboard:Pushboard,
+  Editor:Editor,
+  Splash:Splash,
+  Settings:Settings
+}
 
 class App extends Component {
   render() {
-  	switch(this.props.screen){
-  		case 'Login':
-  			return (<div className='AppContainer'><Login/></div>)
-	  	case 'Pushboard':
-	  		return (<div className='AppContainer'><Pushboard/></div>)
-  		case 'Editor':
-  			return (<div className='AppContainer'><Editor/></div>)
-  		case 'Splash':
-  			return (<div className='AppContainer'><Splash/></div>)
-			default:
-				return (<div>No valid value for "screen" prop</div>)
-  	}
+    const CurrentScreen = screens[this.props.screen]
+    return (
+      <div className='AppContainer'><CurrentScreen/></div>
+    )
   }
 }
 
