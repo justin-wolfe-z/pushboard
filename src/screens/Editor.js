@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {toPushboard, saveThunk} from '../actions/index'
 import ButtonBar from '../components/ButtonBar'
 import FieldBox from '../components/FieldBox'
+import Select from '../components/Select'
 
 class Editor extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Editor extends Component {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
+          <Select labels="true" items={["static","dynamic","template"]} existing={this.state.type} name="type" change={this.handleChange}/>
 					<FieldBox labels="true" items={["icon","label","text"]} existing={this.state} change={this.handleChange}/>
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
