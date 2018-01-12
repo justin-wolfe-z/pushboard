@@ -1,8 +1,9 @@
 body, html { width: 100%; height: 100%; font-family: 'Open Sans', sans-serif; overflow: hidden; position: fixed;}
 
-input, select {
+input, select, textarea {
   font-size: 1em;
   margin: .5%;
+  resize: none;
 }
 
 #root {
@@ -79,7 +80,7 @@ input, select {
 }
 
 .FieldLabel {
-  display: inline-block;
+  display: block;
   padding-right: 1%;
 }
 

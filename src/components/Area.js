@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Select extends Component {
+class Area extends Component {
   constructor(props) {
     super(props);
     if(this.props.existing){
@@ -18,16 +18,10 @@ class Select extends Component {
 		return (
       <div>
         {this.props.labels ? <div className='FieldLabel'>{this.props.name}</div> : ''}
-        <select name={this.props.name} onChange={this.change} placeholder={this.props.name} value={this.state.val}>
-          {
-            Object.keys(this.props.items).map((key) => {
-              return <option key={key} value={key}>{this.props.items[key]}</option>
-            })
-          }
-        </select>
+        <textarea name={this.props.name} onChange={this.change} placeholder={this.props.name} value={this.state.val}/>
       </div>
 		)
 	}
 }
 
-export default Select
+export default Area

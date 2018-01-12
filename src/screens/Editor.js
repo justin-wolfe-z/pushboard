@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {toPushboard, saveThunk} from '../actions/index'
 import ButtonBar from '../components/ButtonBar'
 import FieldBox from '../components/FieldBox'
+import Field from '../components/Field'
+import Area from '../components/Area'
 import Select from '../components/Select'
 import emoji from 'node-emoji'
 
@@ -12,7 +14,6 @@ class Editor extends Component {
     this.state = this.props.button;
     this.handleChange = this.handleChange.bind(this);
     this.toDispatch = this.toDispatch.bind(this);
-    console.log(emoji.emoji)
   }
   handleChange(event) {
   	this.setState({[event.target.name]: event.target.value, error:''})
@@ -23,10 +24,10 @@ class Editor extends Component {
 	render() {
 		return (
 			<div className='editor'>
-				<div>Edit</div>
           <Select emojis="true" labels="true" items={emoji.emoji} existing={this.state.icon} name="icon" change={this.handleChange}/>
           <Select labels="true" items={{static:"static",dynamic:"dynamic",template:"template"}} existing={this.state.type} name="type" change={this.handleChange}/>
-					<FieldBox labels="true" items={["label","text"]} existing={this.state} change={this.handleChange}/>
+          <Field labels="true" name="label" existing={this.state.label} change={this.handleChange}/>
+          <Area labels="true" name="text" existing={this.state.text} change={this.handleChange}/>
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)
