@@ -175,8 +175,6 @@ export const saveThunk = (button) => {
 		fetch(request.url, request.settings)
     	.then(response => response.json())
 	  	.then(data => {
-	  		console.log("returned data")
-	  		console.log(data)
 	  		dispatch(saveSuccess(data))
 	  		dispatch(toPushboard())
 	  	})

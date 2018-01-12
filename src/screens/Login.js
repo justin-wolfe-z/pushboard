@@ -3,13 +3,14 @@ import {connect} from 'react-redux'
 import ButtonBar from '../components/ButtonBar'
 import Message from '../components/Message'
 import FieldBox from '../components/FieldBox'
+import Field from '../components/Field'
 import {accountThunk} from '../actions/index'
 import {validateEmail} from '../data/utils'
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {email:'', key:'', error:''};
+    this.state = {email:'', key:'', error:'', new:true};
     this.handleChange = this.handleChange.bind(this);
     this.toDispatch = this.toDispatch.bind(this);
   }
@@ -20,11 +21,15 @@ class Login extends Component {
     if(validateEmail(this.state.email.trim())){
       if(btn.name==="signup"){
         this.props.toDispatch(this.state, btn)  
-      } else {
-        if(this.state.key.trim() === ''){
-          this.setState({'error':'please enter an api key to log in'})
+      } else if(btn.name==="login"){
+        if(this.state.new){
+          this.setState({new:false});
         } else {
-          this.props.toDispatch(this.state, btn)  
+          if(this.state.key.trim() === ''){
+            this.setState({'error':'please enter an api key to log in'})
+          } else {
+            this.props.toDispatch(this.state, btn)  
+          }
         }
       }    
     } else {
@@ -35,9 +40,10 @@ class Login extends Component {
 		return (
 			<div className='login'>
 				<div>tap</div>
-        <FieldBox message={this.state.error} items={["email","key"]} change={this.handleChange}/>
+        <Field name="email" change={this.handleChange}/>
+        {this.state.new ? '' : <Field name="key" change={this.handleChange}/>}
         <Message text={this.state.error}/>
-        <ButtonBar items={["login","signup"]} click={this.toDispatch}/>
+        <ButtonBar items={["signup","login"]} click={this.toDispatch}/>
 			</div>
 		)
 	}
