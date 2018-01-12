@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import emoji from 'node-emoji'
 
 class Select extends Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Select extends Component {
         {this.props.labels ? <div className='FieldLabel'>{this.props.name}</div> : ''}
         <select name={this.props.name} onChange={this.change} placeholder={this.props.name} value={this.state.val}>
           {
-            this.props.items.map((item) => {
-                return <option key={item} value={item}>{item}</option>
+            Object.keys(this.props.items).map((key) => {
+              return <option key={key} value={key}>{this.props.items[key]}</option>
             })
           }
         </select>

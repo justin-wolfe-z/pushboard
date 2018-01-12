@@ -4,6 +4,7 @@ import {toPushboard, saveThunk} from '../actions/index'
 import ButtonBar from '../components/ButtonBar'
 import FieldBox from '../components/FieldBox'
 import Select from '../components/Select'
+import emoji from 'node-emoji'
 
 class Editor extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Editor extends Component {
     this.state = this.props.button;
     this.handleChange = this.handleChange.bind(this);
     this.toDispatch = this.toDispatch.bind(this);
+    console.log(emoji.emoji)
   }
   handleChange(event) {
   	this.setState({[event.target.name]: event.target.value, error:''})
@@ -22,8 +24,9 @@ class Editor extends Component {
 		return (
 			<div className='editor'>
 				<div>Edit</div>
-          <Select labels="true" items={["static","dynamic","template"]} existing={this.state.type} name="type" change={this.handleChange}/>
-					<FieldBox labels="true" items={["icon","label","text"]} existing={this.state} change={this.handleChange}/>
+          <Select emojis="true" labels="true" items={emoji.emoji} existing={this.state.icon} name="icon" change={this.handleChange}/>
+          <Select labels="true" items={{static:"static",dynamic:"dynamic",template:"template"}} existing={this.state.type} name="type" change={this.handleChange}/>
+					<FieldBox labels="true" items={["label","text"]} existing={this.state} change={this.handleChange}/>
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)
