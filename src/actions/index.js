@@ -1,4 +1,5 @@
 import {fetchPrep} from '../data/utils'
+import qs from 'qs'
 
 export const ACCOUNT_START = 'ACCOUNT_START'
 export const accountStart = (text) => {
@@ -7,6 +8,39 @@ export const accountStart = (text) => {
 
 //QUERY
 //check query string for account params
+export const QUERY_THUNK = 'QUERY_THUNK'
+export const queryThunk = (q) => {
+	return (dispatch) => {
+		if(typeof q === 'string'){
+			let decoded = decodeURIComponent(q);
+    	let query = qs.parse(decoded.slice(1));
+    	if(query.email && query.key){
+	    	dispatch(querySuccess())
+	    	dispatch(accountThunk('login', query.email, query.key))
+    	} else {
+    		dispatch(queryError("required account params not present in query string"))
+    	}
+		} else {
+			dispatch(queryError("no query string"))
+			dispatch(storageThunk('load'))
+		}
+	}
+}
+
+export const QUERY_PROGRESS = 'QUERY_PROGRESS'
+export const queryProgress = (text) => {
+	return {type: QUERY_PROGRESS, text}
+}
+
+export const QUERY_SUCCESS = 'QUERY_SUCCESS'
+export const querySuccess= (text) => {
+	return {type: QUERY_SUCCESS, text}
+}
+
+export const QUERY_ERROR = 'QUERY_ERROR'
+export const queryError = (text) => {
+	return {type: QUERY_ERROR, text}
+}
 
 //STORAGE
 //thunks for saving creds to local storage and retrieving them at application start

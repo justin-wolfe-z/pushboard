@@ -8,7 +8,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk';
 import App from './components/App'
 import reducer from './reducers'
-import { storageThunk } from './actions/index'
+import { queryThunk } from './actions/index'
 
 const store = createStore(reducer, applyMiddleware(thunk,logger))
 
@@ -21,7 +21,7 @@ render(
   document.getElementById('root')
 )
 
-store.dispatch(storageThunk('load'))
+store.dispatch(queryThunk(window.location.search))
 
 if (module.hot) {
     module.hot.accept('./components/App', () => {
