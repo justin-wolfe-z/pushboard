@@ -199,6 +199,8 @@ export const pushError = (text) => {
 	return {type: PUSH_ERROR, text}
 }
 
+//SAVE
+//thunk for saving changes to buttons
 export const SAVE_THUNK = 'SAVE_THUNK'
 export const saveThunk = (button) => {
 	return (dispatch, getState) => {
@@ -236,20 +238,17 @@ export const saveError = (text) => {
 	return {type: SAVE_ERROR, text}
 }
 
-//MOTION
-//toggle whether pushing buttons on the board sends to the editor
+//MOTION/NAVIGATION
 export const TOGGLE_EDIT_SELECT = 'TOGGLE_EDIT_SELECT'
 export const toggleEditSelect = () => {
 	return {type: TOGGLE_EDIT_SELECT}
 }
 
-//action for moving to the editor for a particular button from the pushboard
 export const TO_EDITOR = 'TO_EDITOR'
-export const toEditor = (buttonID) => {
-	return {type: TO_EDITOR, buttonID}
+export const toEditor = (button) => {
+	return {type: TO_EDITOR, button}
 }
 
-//action for moving to the pushboard
 export const TO_PUSHBOARD = 'TO_PUSHBOARD'
 export const toPushboard = () => {
 	return {type: TO_PUSHBOARD}

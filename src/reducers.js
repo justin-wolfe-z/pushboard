@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
         case "TO_EDITOR":
         	return Object.assign({}, state, {
         		screen: "Editor",
-        		selectedButton: state.buttons[action.buttonID]
+        		selectedButton: action.button
         	})
         case "TO_SETTINGS":
             return Object.assign({}, state, {
@@ -53,6 +53,7 @@ const reducer = (state = initialState, action) => {
         case "TO_PREV_SCREEN":
             return Object.assign({}, state, {
                 screen: state.previousScreen,
+                splashText: ''
             })                   			
 		default:
 			return state

@@ -26,7 +26,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     click: (button, selMode) => {
-    	selMode ? dispatch(toEditor(button.id)) : dispatch(pushThunk(button))
+    	selMode ? dispatch(toEditor(button)) : dispatch(pushThunk(button))
     }
   }
 }
