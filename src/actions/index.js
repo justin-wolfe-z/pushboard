@@ -132,7 +132,7 @@ export const accountThunk = (type, email, key) => {
     	.then(response => response.json())
 	  	.then(data => {
 	  		if(data.status==="new"){
-	  			dispatch(accountSuccess(data.body))
+	  			dispatch(accountNew("Thanks for signing up for Tap! Check your email and click the link to open your account."))
 	  		} else if(data.status==="existing"){
 	  			if(type==="login"){
 	  				dispatch(storageThunk('save', email, key))
@@ -156,6 +156,11 @@ export const accountProgress = (text) => {
 export const ACCOUNT_SUCCESS = 'ACCOUNT_SUCCESS'
 export const accountSuccess= (data) => {
 	return {type: ACCOUNT_SUCCESS, data}
+}
+
+export const ACCOUNT_NEW = 'ACCOUNT_NEW'
+export const accountNew= (text) => {
+	return {type: ACCOUNT_NEW, text}
 }
 
 export const ACCOUNT_ERROR = 'ACCOUNT_ERROR'

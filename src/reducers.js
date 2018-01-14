@@ -6,7 +6,7 @@ const reducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 isFetching: true,
                 screen: 'Splash'
-        })                
+            })                
 		case "ACCOUNT_SUCCESS":
 			return Object.assign({}, state, {
                 email: action.data.email,
@@ -16,19 +16,27 @@ const reducer = (state = initialState, action) => {
                 loggedIn: true,
                 screen: 'Pushboard',
                 connectionStatus: 'connected'
-        })
+            })
         case "ACCOUNT_ERROR":
             return Object.assign({}, state, {
                 isFetching: false,    
-                loggedIn: true,
+                loggedIn: false,
                 splashText: 'Error logging in: ' + action.text,
                 screen: 'Splash',
                 previousScreen: 'Login'
-        })
+            })
+        case "ACCOUNT_NEW":
+            return Object.assign({}, state, {
+                isFetching: false,    
+                loggedIn: false,
+                splashText: action.text,
+                screen: 'Splash',
+                previousScreen: 'Login'
+            })
         case "SAVE_SUCCESS":
             return Object.assign({}, state, {
                 buttons:action.button.body
-        })        
+            })        
         case "TO_EDITOR":
         	return Object.assign({}, state, {
         		screen: "Editor",
