@@ -52,7 +52,13 @@ const reducer = (state = initialState, action) => {
         		screen: "Pushboard",
         		selectedButton: null,
                 isSelecting: false
-        	})    
+        	})
+        case "TO_DYNAMIC":
+            return Object.assign({}, state, {
+                screen: "Dynamic",
+                selectedButton: action.button,
+                previousScreen: "Pushboard"
+            })           
         case "TOGGLE_EDIT_SELECT":
         	return Object.assign({}, state, {
         		screen: "Pushboard",

@@ -171,7 +171,7 @@ export const accountError = (text) => {
 //PUSH
 //thunk for using button pushes to trigger Zaps
 export const PUSH_THUNK = 'PUSH_THUNK'
-export const pushThunk = (button) => {
+export const pushThunk = (button, dynamic) => {
 	return (dispatch, getState) => {
 		dispatch(pushStart())
 		dispatch(pushProgress())
@@ -262,6 +262,11 @@ export const toPushboard = () => {
 export const TO_SETTINGS = 'TO_SETTINGS'
 export const toSettings = () => {
 	return {type: TO_SETTINGS}
+}
+
+export const TO_DYNAMIC = 'TO_DYNAMIC'
+export const toDynamic = (button) => {
+	return {type: TO_DYNAMIC, button}
 }
 
 export const TO_PREV_SCREEN = 'TO_PREV_SCREEN'

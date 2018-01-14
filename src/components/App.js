@@ -5,13 +5,15 @@ import Editor from '../screens/Editor'
 import Pushboard from '../screens/Pushboard'
 import Splash from '../screens/Splash'
 import Settings from '../screens/Settings'
+import Dynamic from '../screens/Dynamic'
 
 const screens = {
-  Login:Login,
-  Pushboard:Pushboard,
-  Editor:Editor,
-  Splash:Splash,
-  Settings:Settings
+  Login: Login,
+  Pushboard: Pushboard,
+  Editor: Editor,
+  Splash: Splash,
+  Settings: Settings,
+  Dynamic: Dynamic
 }
 
 class App extends Component {

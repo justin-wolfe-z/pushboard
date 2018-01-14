@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {pushThunk, toEditor} from '../actions/index'
+import {pushThunk, toEditor, toDynamic} from '../actions/index'
 import emoji from 'node-emoji'
 
 class PushButton extends Component {
@@ -8,7 +8,7 @@ class PushButton extends Component {
 		return (
 			<div 
 				className={['PushButton',this.props.isSelecting ? "boardSelecting": "boardNotSelecting"].join(" ")} 
-				onClick={() => this.props.click(this.props, this.props.isSelecting)}
+				onClick={() => this.props.click(this.props, this.props.isSelecting, this.props.type)}
 			>
 				{emoji.get(this.props.icon)}
 			</div>
@@ -25,8 +25,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: (button, selMode) => {
-    	selMode ? dispatch(toEditor(button)) : dispatch(pushThunk(button))
+    click: (button, selecting, type) => {
+    	if(selecting){
+    		dispatch(toEditor(button)) 
+    	} else {
+    		type !== 'static' ? dispatch(toDynamic(button)) : dispatch(pushThunk(button))
+    	}
     }
   }
 }

@@ -1,8 +1,8 @@
 const initialState = {
-	email:null,
-	key:null,
-	query:null,
-	connectionStatus:"disconnected",
+	email: null,
+	key: null,
+	query: null, 
+	connectionStatus: "disconnected",
 	buttons: [],
 	log: [],
 	isFetching: false,

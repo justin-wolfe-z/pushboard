@@ -11,7 +11,6 @@ import emoji from 'node-emoji'
 
 class Editor extends Component {
   constructor(props) {
-    console.log("hey")
     super(props);
     this.state = this.props.button;
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +28,7 @@ class Editor extends Component {
           <Message text={'Button ' + this.state.id}/>
           <Select labels="true" items={{static:"static",dynamic:"dynamic",template:"template"}} existing={this.state.type} name="type" change={this.handleChange}/>
           <Select emojis="true" labels="true" items={emoji.emoji} existing={this.state.icon} name="icon" change={this.handleChange}/>
-          <Area labels="true" name="text" existing={this.state.text} change={this.handleChange}/>
+          {this.state.type==="dynamic" ? null : <Area labels="true" name="text" existing={this.state.text} change={this.handleChange}/>}
 					<ButtonBar items={["save","exit"]} click={this.toDispatch}/>
 			</div>
 		)
