@@ -243,6 +243,31 @@ export const saveError = (text) => {
 	return {type: SAVE_ERROR, text}
 }
 
+export const LOG_OUT_THUNK = 'LOG_OUT_THUNK'
+export const logOutThunk = (text) => {
+	return (dispatch) => {
+		dispatch(storageThunk("remove"))
+		window.location.search = ""
+		dispatch(logOutSuccess())
+		dispatch(toLogin())
+	}
+}
+
+export const LOG_OUT_PROGRESS = 'LOG_OUT_PROGRESS'
+export const logOutProgress = (text) => {
+	return {type: LOG_OUT_PROGRESS, text}
+}
+
+export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS'
+export const logOutSuccess= (text) => {
+	return {type: LOG_OUT_SUCCESS, text}
+}
+
+export const LOG_OUT_ERROR = 'LOG_OUT_ERROR'
+export const logOutError = (text) => {
+	return {type: LOG_OUT_ERROR, text}
+}
+
 //MOTION/NAVIGATION
 export const TOGGLE_EDIT_SELECT = 'TOGGLE_EDIT_SELECT'
 export const toggleEditSelect = () => {
@@ -252,6 +277,11 @@ export const toggleEditSelect = () => {
 export const TO_EDITOR = 'TO_EDITOR'
 export const toEditor = (button) => {
 	return {type: TO_EDITOR, button}
+}
+
+export const TO_LOGIN = 'TO_LOGIN'
+export const toLogin = (button) => {
+	return {type: TO_LOGIN, button}
 }
 
 export const TO_PUSHBOARD = 'TO_PUSHBOARD'

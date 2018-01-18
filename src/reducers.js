@@ -42,6 +42,14 @@ const reducer = (state = initialState, action) => {
         		screen: "Editor",
         		selectedButton: action.button
         	})
+        case "TO_LOGIN":
+            return Object.assign({}, state, {
+                screen: "Login",
+                selectedButton: null,
+                email: null,
+                key: null,
+                buttons: null
+            })            
         case "TO_SETTINGS":
             return Object.assign({}, state, {
                 screen: "Settings",
