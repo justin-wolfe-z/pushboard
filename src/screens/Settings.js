@@ -9,7 +9,7 @@ class Settings extends Component {
 		return (
 			<div>
 				<Message text={this.props.account}/>
-				<Message text={this.props.status}/>
+				<Message text={this.props.api_key}/>
 				<AppButton name='reset API key' click={this.props.toDispatch}/>
 				<AppButton name='log out' click={this.props.toDispatch}/>
 				<AppButton name='exit' click={this.props.toDispatch}/>
@@ -21,7 +21,7 @@ class Settings extends Component {
 const mapStateToProps = state => {
   return {
     account: state.email,
-    status: state.connectionStatus
+    api_key: state.key
   }
 }
 
