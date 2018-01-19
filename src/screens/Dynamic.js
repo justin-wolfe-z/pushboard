@@ -43,6 +43,7 @@ const mapDispatchToProps = dispatch => {
       		text: state.text
       	})
         dispatch(pushThunk(senderButton,true))
+        dispatch(toPrevScreen())
       } else if (btn.name==="cancel"){
         dispatch(toPrevScreen())
       }
