@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {toPrevScreen, logOutThunk} from '../actions/index'
+import {toPrevScreen, logOutThunk, resetKeyThunk} from '../actions/index'
 import AppButton from '../components/AppButton'
 import Message from '../components/Message'
 
@@ -35,7 +35,8 @@ const mapDispatchToProps = dispatch => {
     		case "log out":
     			dispatch(logOutThunk())
     			break;
-    		case "reset api key":
+    		case "reset API key":
+    			dispatch(resetKeyThunk())
     			break;	
     	}
     }

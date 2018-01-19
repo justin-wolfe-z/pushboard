@@ -12,7 +12,7 @@ class Pushboard extends Component {
       <div className='Pushboard'>
         <StatusBar />
         <Board />
-        <ButtonBar items={["edit","log","⚙"]} click={this.props.toDispatch}/>
+        <ButtonBar items={["edit","⚙"]} click={this.props.toDispatch}/>
       </div>
     )
   }

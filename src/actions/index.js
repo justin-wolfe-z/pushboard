@@ -179,7 +179,13 @@ export const pushThunk = (button, dynamic) => {
 		let request = fetchPrep("push", auth, button)
 		fetch(request.url, request.settings)
     	.then(response => response.json())
-	  	.then(data => dispatch(pushSuccess(data)))
+	  	.then(data => {
+	  		if(!data.length){
+	  			dispatch(pushError("Hi there! Looks like you haven't linked this button to a Zap yet, so there's nothing to trigger. Build a Zap linked to this button using the 'New Tap' trigger and turn it on, then try again!"))
+	  		} else {
+		  		dispatch(pushSuccess(data))
+	  		}
+	  	})
   		.catch(error => dispatch(pushError(error)))
 	}
 }
@@ -243,6 +249,7 @@ export const saveError = (text) => {
 	return {type: SAVE_ERROR, text}
 }
 
+//YOU GUESSED IT, FOR LOGGING OUT
 export const LOG_OUT_THUNK = 'LOG_OUT_THUNK'
 export const logOutThunk = (text) => {
 	return (dispatch) => {
@@ -266,6 +273,34 @@ export const logOutSuccess= (text) => {
 export const LOG_OUT_ERROR = 'LOG_OUT_ERROR'
 export const logOutError = (text) => {
 	return {type: LOG_OUT_ERROR, text}
+}
+
+export const RESET_KEY_THUNK = 'RESET_KEY_THUNK'
+export const resetKeyThunk = (text) => {
+	return (dispatch, getState) => {
+		dispatch(resetKeyProgress());
+		let auth = getState().email
+		let request = fetchPrep("reset", auth)
+		fetch(request.url, request.settings)
+    	.then(response => response.json())
+	  	.then(data => dispatch(resetKeySuccess(data)))
+  		.catch(error => dispatch(resetKeyError(error)))			
+	}
+}
+
+export const RESET_KEY_PROGRESS = 'RESET_KEY_PROGRESS'
+export const resetKeyProgress = (text) => {
+	return {type: RESET_KEY_PROGRESS, text}
+}
+
+export const RESET_KEY_SUCCESS = 'RESET_KEY_SUCCESS'
+export const resetKeySuccess= (data) => {
+	return {type: RESET_KEY_SUCCESS, data}
+}
+
+export const RESET_KEY_ERROR = 'RESET_KEY_ERROR'
+export const resetKeyError = (data) => {
+	return {type: RESET_KEY_ERROR, data}
 }
 
 //MOTION/NAVIGATION

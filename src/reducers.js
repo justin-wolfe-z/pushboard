@@ -36,12 +36,28 @@ const reducer = (state = initialState, action) => {
         case "SAVE_SUCCESS":
             return Object.assign({}, state, {
                 buttons:action.button.body
-            })        
+            })
+        case "PUSH_ERROR":
+            return Object.assign({}, state, {
+                screen: "Splash",
+                splashText: action.text,
+                previousScreen: "Pushboard"
+            })                    
         case "TO_EDITOR":
         	return Object.assign({}, state, {
         		screen: "Editor",
         		selectedButton: action.button
         	})
+        case "RESET_KEY_SUCCESS":
+            return Object.assign({}, state, {
+                screen: "Splash",
+                splashText: action.data.message,
+                selectedButton: null,
+                email: null,
+                key: null,
+                buttons: null,
+                previousScreen: "Login"
+            })             
         case "TO_LOGIN":
             return Object.assign({}, state, {
                 screen: "Login",
