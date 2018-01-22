@@ -1,5 +1,5 @@
 export const URLs = {
-	base: 'http://45.55.55.65:4000',
+	base: 'https://tap.justinwolfe.me',
 	route: {
 		login: ['GET','/user'],
 		signup: ['POST','/user'],
