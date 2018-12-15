@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
-import Field from './Field'
+import React from "react";
+import Field from "./Field";
 
-class FieldBox extends Component {
-	render() {
-		return (
-			<div>
-					{
-						this.props.items.map((item) => {
-							return <Field
-								key={item} 
-								name={item}
-								labels={this.props.labels}
-								change={this.props.change}
-								existing={this.props.existing ? this.props.existing[item] : ''}
-							/>
-						})
-					}
-			</div>
-		)
-	}
-}
+const FieldBox = ({ items, labels, change, existing }) => {
+  return (
+    <div>
+      {items.map(item => {
+        return (
+          <Field
+            key={item}
+            name={item}
+            labels={labels}
+            change={change}
+            existing={existing ? existing[item] : ""}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
-export default FieldBox
+export default FieldBox;

@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
-import AppButton from './AppButton'
+import React from "react";
+import AppButton from "./AppButton";
 
-class ButtonBar extends Component {
-	render() {
-		return (
-			<div>
-					{
-						this.props.items.map((item) => {
-							return <AppButton
-								key={item} 
-								name={item}
-								click={this.props.click}
-							/>
-						})
-					}
-			</div>
-		)
-	}
-}
+const ButtonBar = ({ items, click }) => {
+  return (
+    <div>
+      {items.map(item => {
+        return <AppButton key={item} name={item} click={click} />;
+      })}
+    </div>
+  );
+};
 
-export default ButtonBar
+export default ButtonBar;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import Login from '../screens/Login'
-import Editor from '../screens/Editor'
-import Pushboard from '../screens/Pushboard'
-import Splash from '../screens/Splash'
-import Settings from '../screens/Settings'
-import Dynamic from '../screens/Dynamic'
+import React from "react";
+import { connect } from "react-redux";
+import Login from "../screens/Login";
+import Editor from "../screens/Editor";
+import Pushboard from "../screens/Pushboard";
+import Splash from "../screens/Splash";
+import Settings from "../screens/Settings";
+import Dynamic from "../screens/Dynamic";
 
 const screens = {
   Login: Login,
@@ -14,21 +14,21 @@ const screens = {
   Splash: Splash,
   Settings: Settings,
   Dynamic: Dynamic
-}
+};
 
-class App extends Component {
-  render() {
-    const CurrentScreen = screens[this.props.screen]
-    return (
-      <div className='AppContainer'><CurrentScreen/></div>
-    )
-  }
-}
+const App = ({ screen }) => {
+  const CurrentScreen = screens[screen];
+  return (
+    <div className="AppContainer">
+      <CurrentScreen />
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
     screen: state.screen
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);
